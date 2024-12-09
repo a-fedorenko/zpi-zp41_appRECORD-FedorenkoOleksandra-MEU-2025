@@ -3,8 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./styles.css" rel="stylesheet" />
 </head>
 <body>
-    
+    <h3>HTML</h3>
+    <img src="./img/links_01.png" alt="code_example">
+    <h3>CSS</h3>
+    <pre class="css_example">
+        .header_links{
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+        
+            .links_item {
+              margin: 0 20px;
+              cursor: pointer;
+        
+              a {
+                display: block;
+                text-align: center;
+                width: 80px;
+                padding: 5px 10px;
+                text-decoration: none;
+                color: var(--dark-color);
+        
+                &:hover {
+                  color: var(--active);
+                  background-color: #E9E2FF;
+                  border-radius: 20px;
+                }
+              }
+            }
+        
+            .active {
+              border: 1px solid var(--active);
+              border-radius: 20px;
+        
+              a {
+                color: var(--active);
+              }
+            }
+        }
+    </pre>
+    <img src="./img/links_02.png" alt="img_example">
 </body>
 </html>

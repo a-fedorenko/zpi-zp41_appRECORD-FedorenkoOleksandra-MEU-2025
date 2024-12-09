@@ -119,3 +119,7 @@ li:not(:last-child) {
     flex-direction: column;
     align-items: center;
 }
+
+.active {
+    background-color: #E9E2FF;
+}
