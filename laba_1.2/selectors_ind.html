@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>External Styles</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+    <body>
+        <h3>Селектори за ідентифікатором (ID Selectors)</h3>
+        <p>Селектор за ідентифікатором використовується для вибору одного унікального елемента на сторінці за його атрибутом <strong>id</strong>. На відміну від класу, який можна застосовувати до багатьох елементів, <strong>id</strong> повинен бути унікальним.</p>
+        <ol>
+            <li>
+                <h4>Ключові особливості</h4>
+                <ul>
+                    <li>
+                        <strong>Унікальність:</strong> ID повинен бути унікальним для кожного елемента на сторінці.
+                    </li>
+                    <li>
+                        <strong>Специфічність:</strong> Селектори за ідентифікатором мають вищу специфічність, ніж селектори за тегом або класом.
+                    </li>
+                    <li>
+                        <strong>Пріоритет:</strong> Стилі, задані для id, будуть перекривати стилі, задані для класу або тега.
+                    </li>
+                    <li>
+                        <strong>Уникнення дублювання ID:</strong> Використовуйте id тільки для унікальних елементів. Наприклад, не можна використовувати один і той самий ID для двох різних елементів.
+                    </li>
+                    <li>
+                        <strong>Надмірність:</strong> Використовуйте id лише для тих елементів, які потрібно виділити або стилізувати унікально.
+                    </li>
+                    <li>
+                        <strong>Залежність від специфічності:</strong> У великих проєктах надмірне використання id може ускладнити зміну стилів.
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <h4>Синтаксис</h4>
+                <pre class="css_example">
+                    #search {
+                        display: flex;
+                        margin-top: 50px;
+                        
+                        input {
+                            width: 300px;
+                            padding: 5px 20px;
+                            border: none;
+                            border-radius: 20px;
+                            margin-right: 5px;
+                        }
+                    }
+                </pre>
+            </li>
+            <li>
+                <h4>Приклад використання</h4>
+                <img style="width: 70%; display: block; margin-top: 15px;" src="./img/ind_01.png" alt="img_example">
+            </li>
+        </ol>
+    </body>
+</html>

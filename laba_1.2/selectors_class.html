@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>External Styles</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <h3>Селектори за класом (Class Selectors)</h3>
+        <p>Селектори за класом дозволяють вибирати елементи з певним атрибутом <strong>class</strong>. Це дає змогу застосовувати стилі до конкретних груп елементів незалежно від їхнього типу.</p>
+        <ol>
+            <li>
+                <h4>Ключові особливості</h4>
+                <ul>
+                    <li>
+                        <strong>Гнучкість:</strong> Один клас можна застосувати до кількох елементів на сторінці.
+                    </li>
+                    <li>
+                        <strong>Повторне використання:</strong> Клас можна призначати різним елементам для однотипного стилю.
+                    </li>
+                    <li>
+                        <strong>Поєднання класів:</strong> Елемент може мати кілька класів одночасно, розділених пробілами.
+                    </li>
+                    <li>Назва класу повинна бути унікальною і зрозумілою, щоб уникнути плутанини.</li>
+                    <li>Не починайте назву класу з числа (наприклад, .123abc — недопустимо).</li>
+                    <li>Не використовуйте ідентичні назви класів і тегів для уникнення конфліктів.</li>
+                </ul>
+            </li>
+            <li>
+                <h4>Синтаксис</h4>
+                <ul>
+                    <li>Клас завжди позначається крапкою <strong>.</strong> перед назвою.</li>
+                    <li>Елементи в HTML можуть мати кілька класів, розділених пробілами.</li>
+                </ul>
+                <pre class="css_example">
+                    .comment {
+                        display: flex;
+                        flex-direction: column;
+                        padding: 20px;
+                        border: 1px solid var(--dark-color);
+                        border-radius: 15px;
+                        color: #333931;
+                        position: relative;
+                      
+                        .comment_author {
+                          margin-top: 15px;
+                        }
+                       
+                        .comment_pos {
+                          margin-top: 10px;
+                          color: var(--active);
+                        }
+                      
+                        .quite_img {
+                          width: 60px;
+                          position: absolute;
+                          top: -25px;
+                          left: -25px;
+                        }
+                      }
+                </pre>
+            </li>
+            <li>
+                <h4>Приклад використання</h4>
+                <img style="width: 70%; display: block; margin-top: 15px;" src="./img/class_01.png" alt="img_example">
+            </li>
+        </ol>
+    </body>
+</html>

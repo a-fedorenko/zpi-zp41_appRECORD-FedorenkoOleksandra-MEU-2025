@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>External Styles</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <h3>HTML</h3>
+        <img style="width: 90%; display: block; margin-top: 15px;" src="./img/fonts_2_01.png" alt="img_example">
+        <h3>CSS</h3>
+        <pre class="css_example">
+            :root {
+                --primary-color: #0275d8;
+                --dark-color: #333333;
+                --light-color: #f4f4f4;
+                --danger-color: #d9534f;
+                --success-color: #5cb85c;
+                --warning-color: #f0ad4e;
+                --active: #704FE6;
+                --active2: #785DD7;
+                --white: white;
+                --shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            }
+            
+            * {
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+            }
+              
+            body {
+                font-family: 'Roboto', sans-serif;
+                font-size: 1rem;
+                line-height: 1.6;
+                background-color: var(--light-color);
+                color: --dark-color;
+                height: 100vh;
+            }
+
+            .post{
+                .post_card {
+                  display: flex;
+                  align-items: stretch;
+                  justify-content: space-between;
+                  border-radius: 10px;
+                  padding: 25px;
+                  background-color: var(--light-color);
+                  height: 100%;
+                }
+              
+                .post_content {
+                  display: flex;
+                  flex-direction: column;
+                
+                  img {
+                    max-width: 100%;
+                    flex: 0 0 auto;
+                  }
+                }
+              
+                .post_title {
+                  margin-top: 20px;
+                }
+              
+                .post_info {
+                  display: flex;
+                  align-items: center;
+                  justify-content: space-between;
+                  padding: 10px 0;
+                  margin-top: 15px;
+                  border-radius: 8px;
+                  list-style-type: none;
+                }
+            }
+        </pre>
+        <img style="width: 70%; display: block; margin-top: 15px;" src="./img/fonts_2_02.png" alt="img_example">
+    </body>
+</html>

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>External Styles</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+    .item {
+        margin-bottom: 15px;
+        
+        > span {
+            margin-top: 10px;
+        }
+    }
+    img {
+        width: 40%;
+        display: block;
+        margin-top: 15px;
+    }                       
+</style>
+    <body>
+        <h3>Інші селектори</h3>
+        <ol>
+            <li>
+                <h4>Селектори сусідніх елементів у CSS</h4>
+                <p>Селектори сусідніх елементів використовуються для вибору елементів, які знаходяться поруч з певним елементом. Вони дозволяють стилізувати елементи, розташовані на тому ж рівні в DOM-дереві.</p>
+                <ul>
+                    <li class="item">
+                        <strong>Переваги використання</strong>
+                        <ul style="margin-top: 10px;">
+                            <li>Зручно для стилізації структурованих даних, наприклад, списків або таблиць.</li>
+                            <li>Зменшує потребу у створенні зайвих класів чи ідентифікаторів.</li>
+                            <li>Дозволяє стилізувати тільки потрібні елементи залежно від їхнього розташування.</li>
+                        </ul>
+                    </li>
+                    <li class="item"><strong>Безпосередній сусід (Adjacent Sibling Selector)</strong>
+                        <span>Селектор безпосереднього сусіда вибирає перший елемент, який безпосередньо слідує за зазначеним елементом.</span>
+                        <pre class="css_example">
+                            .category {
+                                img {
+                                    width: 30px;
+                                    margin-right: 10px;
+                                }
+                            
+                                img + span {
+                                    font-weight: 600;
+                                }
+                            }
+                        </pre>
+                        <img style="width: 70%;" src="./img/others_01.png" alt="img_example">
+                    </li>
+                    <li class="item"><strong>Загальні сусіди (General Sibling Selector)</strong>
+                        <span>Селектор загальних сусідів вибирає всі елементи, які знаходяться на одному рівні в DOM-дереві та слідують за зазначеним елементом.</span>
+                        <pre class="css_example">
+                            div ~ .post_card {
+                                margin-right: 15px;
+                            }
+                        </pre>
+                        <img style="width: 90%;" src="./img/others_02.png" alt="img_example">
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <h4>Селектори дочірніх елементів</h4>
+                <p>Селектори дочірніх елементів використовуються для вибору елементів, які є безпосередніми дочірніми елементами певного елемента. Вони дозволяють стилізувати елементи, які знаходяться на один рівень нижче в DOM-дереві.</p>
+                <ul>
+                    <li class="item">
+                        <strong>Переваги використання</strong>
+                        <ul style="margin-top: 10px;">
+                            <li>Забезпечує більш точний вибір елементів.</li>
+                            <li>Зменшує конфлікти стилів у випадках складної структури HTML.</li>
+                            <li>Знижує ймовірність впливу стилів на непотрібні вкладені елементи.</li>
+                        </ul>
+                    </li>
+                    <li class="item"><strong>Безпосередній дочірній елемент (Child Selector).</strong>
+                        <span> Селектор безпосереднього дочірнього елемента вибирає всі елементи, які є безпосередніми дочірніми елементами зазначеного елемента.</span>
+                        <pre class="css_example">
+                            .parent > .child {
+                                color: blue;
+                                border: 1px solid green;
+                                width: 20%;
+                                padding: 5px;
+                                margin: 2px;
+                            }
+                        </pre>
+                        <img src="./img/others_03.png" alt="img_example">
+                        <img src="./img/others_04.png" alt="img_example">
+                    </li>
+                    <li class="item"><strong>Нащадок (Descendant Selector).</strong>
+                        <span> Селектор нащадка вибирає всі елементи, які є нащадками зазначеного елемента, незалежно від їхнього рівня в DOM-дереві.</span>
+                        <pre class="css_example">
+                            .ancestor .descendant {
+                                color: green;
+                                border: 1px solid blue;
+                                width: 20%;
+                                padding: 5px;
+                                margin: 2px;
+                            }
+                        </pre>
+                        <img src="./img/others_05.png" alt="img_example">
+                        <img src="./img/others_06.png" alt="img_example">
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <h4>Селектори атрибутів</h4>
+                <p>Селектори атрибутів дозволяють вибирати HTML-елементи за наявністю або значенням певного атрибута. Це корисно для більш точного налаштування стилів.</p>
+                <ul>
+                    <li class="item">
+                        <strong>Переваги використання</strong>
+                        <ul style="margin-top: 10px;">
+                            <li>Гнучкість: Можна вибирати елементи без додавання класів чи ID.</li>
+                            <li>Точність: Можна стилізувати елементи залежно від значення їх атрибутів.</li>
+                            <li>Динамічність: Підходить для роботи з динамічним контентом.</li>
+                        </ul>
+                    </li>
+                    <li class="item"><strong>Селектор із точним значенням атрибута.</strong>
+                        <span> Вибирає елементи, у яких атрибут має точно вказане значення.</span>
+                        <pre class="css_example">
+                            [input="text"] {
+                                background-color: lightgray;
+                            }
+                        </pre>
+                    </li>
+                    <li class="item"><strong>Селектор із початковим значенням атрибута.</strong>
+                        <span> Вибирає елементи, у яких значення атрибута починається із зазначеного рядка.</span>
+                        <pre class="css_example">
+                            [href^="https"] {
+                                color: green;
+                            }
+                        </pre>
+                    </li>
+                    <li class="item"><strong>Селектор із кінцевим значенням атрибута.</strong>
+                        <span> Вибирає елементи, у яких значення атрибута закінчується на зазначений рядок.</span>
+                        <pre class="css_example">
+                            [src$=".jpg"] {
+                                border: 2px solid red;
+                            }
+                        </pre>
+                    </li>
+                    <li class="item"><strong>Селектор, який містить значення атрибута.</strong>
+                        <span> Вибирає елементи, у яких значення атрибута містить зазначений рядок.</span>
+                        <pre class="css_example">
+                            [class*="btn"] {
+                                padding: 10px;
+                            }
+                        </pre>
+                    </li>
+                    <li class="item"><strong>Селектор із наявністю певного слова.</strong>
+                        <span> Вибирає елементи, у яких атрибут містить слово, розділене пробілом.</span>
+                        <pre class="css_example">
+                            [class~="highlight"] {
+                                background-color: yellow;
+                            }
+                        </pre>
+                    </li>
+                    <li class="item"><strong>Селектор із наявністю певного префіксу.</strong>
+                        <span> Вибирає елементи, у яких значення атрибута дорівнює зазначеному значенню або починається з цього значення, розділеного дефісом.</span>
+                        <pre class="css_example">
+                            [lang|="en"] {
+                                font-style: italic;
+                            }
+                        </pre>
+                    </li>
+                    <li class="item"><strong>Приклад</strong>
+                        <pre class="css_example">
+                            .social_item {
+                                [src$=".png"] {
+                                    width: 40px;
+                                    cursor: pointer; 
+                                }
+                                [src$=".png"]:hover {
+                                    transform: scale(1.1);
+                                }
+                            }
+                        </pre>
+                        <img style="width: 75%;" src="./img/others_07.png" alt="img_example">
+                        <img src="./img/others_08.png" alt="img_example">
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <h4>Універсальний селектор</h4>
+                <p>Універсальний селектор (*) в CSS вибирає всі елементи на сторінці, включно з вкладеними.</p>
+                <ul>
+                    <li class="item">
+                        <strong>Особливості</strong>
+                        <ul style="margin-top: 10px;">
+                            <li>Вибір усіх елементів: Включає не лише стандартні HTML-теги (&lt;div&gt;, &lt;з&gt;, &lt;span&gt;), а й псевдоелементи (::before, ::after).</li>
+                            <li>Специфічність: Універсальний селектор має найнижчу специфічність, його можна легко перекрити іншими стилями.</li>
+                            <li>Вплив на продуктивність: Використання універсального селектора для великих проєктів може впливати на продуктивність, оскільки стилі застосовуються до кожного елемента.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ol>
+    </body>
+</html>

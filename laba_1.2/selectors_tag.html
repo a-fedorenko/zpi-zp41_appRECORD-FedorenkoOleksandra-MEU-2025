@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>External Styles</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+    <body>
+        <h3>Селектори за тегом (Type Selectors)</h3>
+        <p>Селектор за тегом вибирає всі елементи певного типу (наприклад, всі &lt;p&gt;, &lt;h1&gt;, &lt;div&gt;) на сторінці. Це найпростіший і базовий вид селекторів у CSS.</p>
+        <ol>
+            <li>
+                <h4>Ключові особливості</h4>
+                <ul>
+                    <li>
+                        <strong>Простота:</strong> Селектори за тегом підходять для стилізації всіх елементів певного типу.
+                    </li>
+                    <li>
+                        <strong>Масштабність:</strong> Усі елементи з однаковим тегом отримують задані стилі.
+                    </li>
+                    <li>
+                        <strong>Низька специфічність:</strong> Стилі від селектора за тегом можуть бути перекриті стилями з більшою специфічністю (наприклад, класами або ідентифікаторами).
+                    </li>
+                    <li>Якщо на сторінці багато однакових тегів, стилі за тегом впливатимуть на всі ці елементи, що може призвести до небажаних результатів</li>
+                </ul>
+            </li>
+            <li>
+                <h4>Синтаксис</h4>
+                <pre class="css_example">
+                    body {
+                        font-family: 'Roboto', sans-serif;
+                        font-size: 1rem;
+                        line-height: 1.6;
+                        background-color: var(--light-color);
+                        color: --dark-color;
+                        height: 100vh;
+                    }
+                    
+                    h1 {
+                        font-size: 40px;
+                        width: 550px;
+                        margin: 0 auto;
+                        text-align: center;
+                    }
+                </pre>
+            </li>
+            <li>
+                <h4>Приклад використання</h4>
+                <img style="width: 70%; display: block; margin-top: 15px;" src="./img/tag_01.png" alt="img_example">
+            </li>
+        </ol>
+    </body>
+</html>

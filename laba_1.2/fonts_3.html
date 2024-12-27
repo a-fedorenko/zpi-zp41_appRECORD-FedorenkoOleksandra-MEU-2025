@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>External Styles</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <h3>HTML</h3>
+        <img style="width: 90%; display: block; margin-top: 15px;" src="./img/fonts_3_01.png" alt="img_example">
+        <h3>CSS</h3>
+        <pre class="css_example">
+          input {
+            width: 100%;
+            background-color: var(--light-color);
+            border-radius: 0;
+            font-size: 14px;
+            padding: 15px;
+            height: 50px;
+            border: none;
+          }
+
+          input:focus {
+            outline: none;
+          }
+          
+          .input_field {
+            margin-bottom: 15px;
+          }
+          
+          .auth {
+            .auth_block {
+              display: flex;
+              justify-content: space-between;
+              background-color: var(--white);
+              margin: 80px 100px;
+            }
+          
+            .auth_form {
+              flex: 0 0 50%;
+              padding: 70px 30px;
+            }
+          
+            .auth_img {
+              flex: 0 0 50%;
+              background-image: url('../../../assets/images/signin.png');
+              background-size: cover;
+              background-repeat: no-repeat;
+            }
+          }
+          
+          .form {
+            .form_title {
+              text-transform: uppercase;
+              font-weight: 600;
+              display: block;
+              margin-bottom: 20px;
+            }
+          
+            .form_submit {
+              display: flex;
+              align-items: center;
+          
+              .register_link {
+                margin-left: 20px;
+              }
+            }
+          }
+          
+        </pre>
+        <img style="width: 90%; display: block; margin-top: 15px;" src="./img/fonts_3_02.png" alt="img_example">
+    </body>
+</html>
