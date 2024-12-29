@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="./styles/styles.css" rel="stylesheet" />
+        <style>
+            h3 {
+                text-transform: uppercase;
+            }
+            p {
+                margin: 5px 0;
+            }
+            .title {
+                margin-top: 15px;
+            }
+
+            img {
+                width: 50%;
+            }
+        </style>
+    </head>
+    <body>
+        <h3>ЗАВДАННЯ 2</h3>
+        <p>
+            Функція <code>checkForSpam(message)</code> приймає рядок (параметр <code>message</code>), перевіряє його на вміст заборонених слів <code>spam</code> і <code>sale</code>, і повертає результат перевірки.
+            Слова в рядку параметра <code>message</code> можуть бути в довільному регістрі, наприклад <code>SPAM</code> або <code>sAlE</code>.<ul>
+            Доповни код функції таким чином, що:
+            <ul>  
+                <li>
+                    Якщо знайдено заборонене слово (<code>spam</code> або <code>sale</code>), то функція повертає буль <code>true</code>
+                </li>
+                <li>
+                    Якщо в рядку відсутні заборонені слова, функція повертає буль <code>false</code>
+                </li>
+            </ul>
+        </p>
+        <h4>JS CODE</h4>
+        <pre>
+            <code>
+                function checkForSpam(message) {
+                    const result = message.toLowerCase().includes('spam') || message.toLowerCase().includes('sale');
+                    return result;
+                } 
+            </code>
+        </pre>
+        <h4>CONSOLE</h4>
+        <pre>
+            <code>
+                console.log(checkForSpam('Latest technology news'));
+                console.log(checkForSpam('JavaScript weekly newsletter'));
+                console.log(checkForSpam('Get best sale offers now!'));
+                console.log(checkForSpam('[SPAM] How to earn fast money?'));
+            </code>
+        </pre>
+        <img src="./img/3.1_02.png" alt="console">
+    </body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="./styles/styles.css" rel="stylesheet" />
+        <style>
+            h3 {
+                text-transform: uppercase;
+            }
+            p, h4 {
+                margin: 5px 0;
+            }
+            .title {
+                margin-top: 15px;
+            }
+
+            img {
+                width: 50%;
+            }
+        </style>
+    </head>
+    <body>
+        <h3>ЗАВДАННЯ 1</h3>
+        <p>
+            Станція з продажу ремонтних дроїдів. Оголоси функцію makeTransaction, яка очікує два параметри, значення яких будуть задаватися під час її виклику:
+            <ul>
+                <li>
+                    <code>quantity</code> — перший параметр, число, що містить кількість замовлених дроїдів
+                </li>
+                <li>
+                    <code>pricePerDroid</code> — другий параметр, число, що містить вартість одного дроїда
+                </li>
+            </ul>
+                Напиши код функції так, щоб вона повертала рядок з повідомленням про покупку ремонтних дроїдів:
+                "You ordered <quantity> droids worth <totalPrice> credits!", де:
+            <ul>
+                <li>
+                    <code>quantity</code> — це кількість замовлених дроїдів
+                </li>
+                <li>
+                    <code>totalPrice</code> — це загальна вартість замовлення, тобто вартість усіх замовлених дроїдів
+                </li>
+            </ul> 
+        </p>
+        <h4>JS CODE</h4>
+        <pre>
+            function makeTransaction(quantity, pricePerDroid) {
+                const totalPrice = quantity * pricePerDroid;
+                return `You ordered ${quantity} droids worth ${totalPrice} credits!`;
+            }
+        </pre>
+        <h4>CONSOLE</h4>
+        <pre>
+            <code>
+                console.log(makeTransaction(5, 3000));
+                console.log(makeTransaction(8, 100));
+                console.log(makeTransaction(10, 70.5));
+            </code>
+        </pre>
+        <img src="./img/3.1_01.png" alt="console">
+    </body>
+</html>

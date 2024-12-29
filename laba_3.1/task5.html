@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="./styles/styles.css" rel="stylesheet" />
+        <style>
+            h3 {
+                text-transform: uppercase;
+            }
+            p {
+                margin: 5px 0;
+            }
+            .title {
+                margin-top: 15px;
+            }
+            #image-container {
+            margin: 20px auto;
+            overflow: hidden;
+            }
+            img {
+                max-width: 100%;
+                display: block;
+            }
+            form {
+                flex: 0 0 50%;
+                padding: 30px 50px 0 0;
+            }
+            input {
+                width: 100%;
+                background-color: white;
+                border-radius: 0;
+                font-size: 14px;
+                padding: 8px;
+                height: 30px;
+                border: none;
+
+                &:focus {
+                    outline: none;
+                }
+            }
+            .input_field {
+                margin-bottom: 15px;
+            }
+            button {
+                display: inline-block;
+                padding: 15px 20px;
+                font-size: 14px;
+                border: 1px solid #ccc;
+                border-radius: 25px;
+                cursor: pointer;
+                outline: none;
+            }
+            button:hover {
+                box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            }
+        </style>
+    </head>
+    <body>
+        <h3>ЗАВДАННЯ 5 (5 варіант)</h3>
+        <h4>Слайд-шоу</h4>
+        <p>
+            Реалізувати можливість перегляду зображень за таймером, врахувати можливість налаштування
+            розміру зображень, циклічність перегляду, а також часу між переключеннями.
+        </p>
+        <h4>HTML</h4>
+        <pre>
+            <code>
+                &lt;section>
+                    &lt;div id="image-container">
+                        &lt;img id="slideshow" src="./img/slide_1.png" alt="img"/>
+                    &lt;/div>
+                    &lt;form id="form">
+                        &lt;div class="form_content">
+                        &lt;div class="input_field">
+                            &lt;input class="input" id="width" type="number" placeholder="Width" value="1000">
+                        &lt;/div>
+                        &lt;div class="input_field">
+                            &lt;input class="input" id="height" type="number" placeholder="Height" value="500">
+                        &lt;/div>
+                        &lt;div class="input_field">
+                            &lt;input class="input" id="interval" type="number" placeholder="Interval" value="800">
+                        &lt;/div>
+                        &lt;/div>
+                    &lt;/form>
+                    &lt;div>
+                        &lt;button onclick="start()">Запустити слайд-шоу&lt;/button>
+                        &lt;button onclick="stop()">Зупинити&lt;/button>
+                    &lt;/div>
+                &lt;/section>
+            </code>
+        </pre>
+        <h4>JS CODE</h4>
+        <pre>
+            <code>
+                let images = [
+                    './img/slide_1.png',
+                    './img/slide_2.png',
+                    './img/slide_3.png',
+                ];
+                const form = document.getElementById('form');
+                const imageElement = document.getElementById('slideshow');
+                let currentIndex = 0;
+                let timer = null;
+
+                function start() {
+                    const width = form.elements['width'].value;
+                    const height = form.elements['height'].value;
+                    const interval = form.elements['interval'].value;
+
+                    // Встановлюємо розміри зображення
+                    imageElement.style.width = `${width}px`;
+                    imageElement.style.height = `${height}px`;
+                    
+                    // Запуск слайдшоу
+                    changeImage();
+                    
+                    if (timer) {
+                        clearInterval(timer); // Уникнення дублювання таймера
+                    }
+
+                    timer = setInterval(changeImage, interval);
+                }
+
+                function changeImage() {
+                    imageElement.src = images[currentIndex];
+                    currentIndex = (currentIndex + 1) % images.length; // Циклічний індекс
+                }
+
+                function stop() {
+                    if (timer) {
+                        clearInterval(timer); // Зупинити таймер
+                        timer = null;
+                    }
+                }
+            </code>
+        </pre>
+        <h4>PROGRAM</h4>
+        <section>
+            <div id="image-container">
+                <img id="slideshow" src="./img/slide_1.png" alt="img"/>
+            </div>
+            <form id="form">
+                <div class="form_content">
+                  <div class="input_field">
+                    <input class="input" id="width" type="number" placeholder="Width" value="1000">
+                  </div>
+                  <div class="input_field">
+                    <input class="input" id="height" type="number" placeholder="Height" value="500">
+                  </div>
+                  <div class="input_field">
+                    <input class="input" id="interval" type="number" placeholder="Interval" value="800">
+                  </div>
+                </div>
+            </form>
+            <div>
+                <button onclick="start()">Запустити слайд-шоу</button>
+                <button onclick="stop()">Зупинити</button>
+            </div>
+        </section>
+    </body>
+    <script>
+        let images = [
+            './img/slide_1.png',
+            './img/slide_2.png',
+            './img/slide_3.png',
+        ];
+        const form = document.getElementById('form');
+        const imageElement = document.getElementById('slideshow');
+        let currentIndex = 0;
+        let timer = null;
+
+        function start() {
+            const width = form.elements['width'].value;
+            const height = form.elements['height'].value;
+            const interval = form.elements['interval'].value;
+
+            // Встановлюємо розміри зображення
+            imageElement.style.width = `${width}px`;
+            imageElement.style.height = `${height}px`;
+            
+            // Запуск слайдшоу
+            changeImage();
+            
+            if (timer) {
+                clearInterval(timer); // Уникнення дублювання таймера
+            }
+
+            timer = setInterval(changeImage, interval);
+        }
+
+        function changeImage() {
+            imageElement.src = images[currentIndex];
+            currentIndex = (currentIndex + 1) % images.length; // Циклічний індекс
+        }
+
+        function stop() {
+            if (timer) {
+                clearInterval(timer); // Зупинити таймер
+                timer = null;
+            }
+        }
+    </script>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="./styles/styles.css" rel="stylesheet" />
+        <style>
+            h3 {
+                text-transform: uppercase;
+            }
+            p, h4 {
+                margin: 5px 0;
+            }
+            .title {
+                margin-top: 15px;
+            }
+        </style>
+    </head>
+    <body>
+        <h3>Висновки:</h3>
+        <p>
+            JavaScript використовується для створення інтерактивних і динамічних веб-сторінок. Основні завдання JS в HTML-документі:
+            JavaScript є основним інструментом для динамічних веб-сторінок. Масиви спрощують роботу з даними, а широкий набір методів дозволяє ефективно їх обробляти. Використання JS-сценаріїв надає змогу створювати інтерактивні програми, такі як калькулятори, списки та інші динамічні елементи.
+        </p>
+        <ol>
+            <li>Виконання дій при подіях (клік, наведення курсора, введення тексту).</li>
+            <li>Зміна вмісту сторінки без перезавантаження.</li>
+            <li>Валідація форм (перевірка введених даних).</li>
+            <li>Робота з кукісами (збереження даних на стороні клієнта).</li>
+            <li>Взаємодія з сервером (отримання та відправка даних).</li>
+        </ol>
+        <h4>Підключення JavaScript до HTML</h4>
+        <ol>
+            <li>
+                Вбудований JavaScript: використовується тег <code>&lt;script&gt;</code> для вставки коду в HTML-сторінку.
+                <pre>
+                    &lt;script&gt;
+                        alert('Hello, world!');
+                    &lt;/script&gt;
+                </pre>
+            </li>
+            <li>
+                Зовнішній JavaScript: використовується атрибут <code>src</code> для підключення зовнішнього файлу з кодом.
+                <pre>
+                    &lt;script src="script.js"&gt;&lt;/script&gt;
+                </pre>
+            </li>
+            <li>
+                Використання атрибутів подій безпосередньо в тегах HTML.
+                <pre>
+                    &lt;button onclick="alert('Hello, world!')"&gt;Click me&lt;/button&gt;
+                </pre>
+            </li>
+        </ol>
+        <h4>Використання масивів у JS-сценаріях</h4>
+        <p>Масиви в JavaScript дозволяють зберігати кілька значень в одній змінній. Це потужний інструмент для роботи з великими обсягами даних.</p>
+        <ol>
+            <li>
+                <h4>Створення масиву:</h4>
+                <ul>
+                    <li>
+                        За допомогою квадратних дужок:
+                        <pre>
+                            let fruits = ['Apple', 'Banana', 'Cherry'];
+                        </pre>
+                    </li>
+                    <li>
+                        За допомогою конструктора <code>Array()</code>:
+                        <pre>
+                            let fruits = new Array('Apple', 'Banana', 'Cherry');
+                        </pre>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <h4>Методи роботи з масивами</h4>
+                <ul>
+                    <li>
+                        Додавання/видалення елементів:
+                        <pre>
+                            const fruits = ['яблуко', 'банан'];
+                            fruits.push('груша');    // Додати в кінець
+                            fruits.pop();            // Видалити останній
+                            fruits.shift();          // Видалити перший
+                            fruits.unshift('апельсин'); // Додати на початок
+                        </pre>
+                    </li>
+                    <li>
+                        Перебір масиву:
+                        <pre>
+                            const numbers = [1, 2, 3, 4, 5];
+                            numbers.forEach((num) => {
+                                console.log(num);
+                            });
+                        </pre>
+                    </li>
+                    <li>
+                        Пошук елементів:
+                        <pre>
+                            const doubled = numbers.map((num) => num * 2); // Множення всіх елементів на 2
+                            const filtered = numbers.filter((num) => num > 3); // Фільтрація (тільки > 3)
+                        </pre>
+                    </li>
+                    <li>
+                        Маніпуляції з даними:
+                        <pre>
+                            const doubled = numbers.map((num) => num * 2); // Множення всіх елементів на 2
+                            const filtered = numbers.filter((num) => num > 3); // Фільтрація (тільки > 3)
+                        </pre>
+                    </li>
+                </ul>
+            </li>
+        </ol>
+    </body>
+</html>
