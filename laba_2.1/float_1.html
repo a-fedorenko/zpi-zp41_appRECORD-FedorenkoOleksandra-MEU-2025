@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Фіксована блокова верстка</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: black;
+        }
+        .container {
+            width: 295px;
+            margin: 20px auto;
+            border: 2px solid #616161;
+            background-color: white;
+            font-weight: 600;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+
+            * {
+                margin: 0;
+                padding: 0;
+            }
+        }
+        .header,
+        .footer {
+            width: 100%;
+            height: 50px;
+            background-color: #F7CE46;
+            text-align: center;
+            line-height: 50px;
+            position: relative;
+        }
+        .header .rectangle {
+            float: left;
+            width: 100px;
+            height: 20px;
+            margin: 12px;
+            background-color: white;
+            border: 2px solid #616161;
+        }
+        .header {
+            border-bottom: 2px solid #616161;
+        }
+        .footer {
+            border-top: 2px solid #616161;
+        }
+        .main {
+            width: 100%;
+            height: 270px;
+
+            li {
+                float: left;
+                width: 70px;
+                height: 100%;
+                list-style: none;
+                line-height: 270px;
+                box-sizing: border-box;
+                align-items: center;
+                text-align: center;
+                border-left: 2px solid #616161;
+                
+            }
+
+            li:first-child {
+                border-left: none;
+            }
+
+            li:not(:last-child) {
+                border-right: 2px solid #616161;
+                margin-right: 5px;
+            }
+        }
+        .blue {
+            background-color: #4065F6;
+        }
+        .red {
+            background-color: #EC5E57;
+        }
+        .white {
+            background-color: white;
+        }
+        .footer {
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+    <h3>Фіксована блокова верстка</h3>
+    <h4>HTML</h4>
+    <pre>
+        &lt;div class="container">
+            &lt;div class="header">
+                &lt;div class="rectangle">&lt;/div>
+                1
+            &lt;/div>
+            &lt;ul class="main">
+                &lt;li class="blue">2&lt;/li>
+                &lt;li class="red">3&lt;/li>
+                &lt;li class="white">4&lt;/li>
+                &lt;li class="red">5&lt;/li>
+            &lt;/ul>
+            &lt;div class="footer">6&lt;/div>
+        &lt;/div>  
+    </pre>
+    <h4>CSS</h4>
+    <pre>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: black;
+            font-weight: 600;
+        }
+        .container {
+            width: 295px;
+            margin: 20px auto;
+            border: 2px solid #616161;
+            background-color: white;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+        }
+        .header,
+        .footer {
+            width: 100%;
+            height: 50px;
+            background-color: #F7CE46;
+            text-align: center;
+            line-height: 50px;
+            position: relative;
+        }
+        .header .rectangle {
+            float: left;
+            width: 100px;
+            height: 20px;
+            margin: 12px;
+            background-color: white;
+            border: 2px solid #616161;
+        }
+        .header {
+            border-bottom: 2px solid #616161;
+        }
+        .footer {
+            border-top: 2px solid #616161;
+        }
+        .main {
+            width: 100%;
+            height: 270px;
+
+            li {
+                float: left;
+                width: 70px;
+                height: 100%;
+                list-style: none;
+                line-height: 270px;
+                box-sizing: border-box;
+                align-items: center;
+                text-align: center;
+                border-left: 2px solid #616161;
+                
+            }
+
+            li:first-child {
+                border-left: none;
+            }
+
+            li:not(:last-child) {
+                border-right: 2px solid #616161;
+                margin-right: 5px;
+            }
+        }
+        .blue {
+            background-color: #4065F6;
+        }
+        .red {
+            background-color: #EC5E57;
+        }
+        .white {
+            background-color: white;
+        }
+        .footer {
+            clear: both;
+        }
+    </pre>
+    <h4>RESULT</h4>
+    <div class="container">
+        <div class="header">
+            <div class="rectangle"></div>
+            1
+        </div>
+        <ul class="main">
+            <li class="blue">2</li>
+            <li class="red">3</li>
+            <li class="white">4</li>
+            <li class="red">5</li>
+         </ul>
+        <div class="footer">6</div>
+    </div>
+</body>
+</html>

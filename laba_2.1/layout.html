@@ -11,9 +11,474 @@
         <img style="width: 100%;" src="./img/layout_01.png" alt="img_example">
         <h3>HTML</h3>
         <pre>
-            
+            &lt;!DOCTYPE html>
+            &lt;html lang="en">
+
+            &lt;head>
+                &lt;meta charset="UTF-8">
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1.0">
+                &lt;title>App&lt;/title>
+            &lt;/head>
+
+            &lt;body>
+                &lt;header>
+                    &lt;div class="header">
+                        &lt;div class="header_wrapper">
+                            &lt;a routerLink="courses">&lt;img src="assets/images/logo.png" alt="logo" class="courses_logo">&lt;/a>
+                            &lt;div class="header_content">
+                                &lt;ul class="header_links">
+                                    &lt;li class="links_item active">&lt;a routerLink="courses">Home&lt;/a>&lt;/li>
+                                    &lt;li class="links_item">&lt;a routerLink="about">About&lt;/a>&lt;/li>
+                                    &lt;li class="links_item">&lt;a href="#blog">Blog&lt;/a>&lt;/li>
+                                    &lt;li class="links_item">&lt;a href="#reviews">Reviews&lt;/a>&lt;/li>
+                                    &lt;li class="links_item">&lt;a href="#contact">Contact&lt;/a>&lt;/li>
+                                &lt;/ul>
+                            &lt;/div>
+                            &lt;app-button [iconWrap]="true" [btnClass]="'header_logout'"
+                                [buttonText]="isSingIn ? 'Logout' : 'Create Account'" [type]="'button'" [iconName]="arrow"
+                                (click)="log()">&lt;/app-button>
+                        &lt;/div>
+                    &lt;/div>
+                &lt;/header>
+                &lt;main>
+                    &lt;section class="sertion_search">
+                        &lt;div class="search_title">
+                            &lt;span class="search_subtitile">Welcome Edunity online courses&lt;/span>
+                            &lt;h1>Achieving Your Dreams Through Education&lt;/h1>
+                            &lt;p class="search_desription">We are experienced in educationl platform and skilled strategies for the
+                                success of our online learning.&lt;/p>
+                            &lt;app-search [placeholder]="'Search course'">&lt;/app-search>
+                        &lt;/div>
+                        &lt;img class="search_img" src="assets/images/search_section.png" />
+                    &lt;/section>
+                    &lt;section class="sertion_categories">
+                        &lt;app-category *ngFor="let item of categories" [color]="item.color" [icon]="item.icon"
+                            [categoryText]="item.name">&lt;/app-category>
+                    &lt;/section>
+                    &lt;section class="wrapper sertion_courses">
+                        &lt;app-label [labelText]="'Top Popular Course'">&lt;/app-label>
+                        &lt;div class="courses_title">
+                            &lt;h1>Course Student Can Join With Us.&lt;/h1>
+                            &lt;app-button [iconWrap]="true" [btnClass]="'header_logout'" [buttonText]="'Load Mode Courses'"
+                                [type]="'button'" [iconName]="arrowIcon">&lt;/app-button>
+                        &lt;/div>
+                        &lt;div *ngIf="courses?.length" class="course_list">
+                            &lt;div class="course_card" *ngFor="let course of courses" [course]="course">
+                                &lt;div class="course_content">
+                                    &lt;img class="course_img" [src]="course.url" alt="course_img" />
+                                    &lt;h3 class="course_title">{{ course.title }}&lt;/h3>
+                                    &lt;ul class="course_info">
+                                        &lt;li>&lt;fa-icon class="info_icon" [icon]="lesson">&lt;/fa-icon> Lesson {{ course.lessons }}&lt;/li>
+                                        &lt;li>&lt;fa-icon class="info_icon" [icon]="clock">&lt;/fa-icon> {{ course.duration | duration }}
+                                        &lt;/li>
+                                        &lt;li>Students {{ course.students }}+&lt;/li>
+                                    &lt;/ul>
+
+                                    &lt;div class="course_action">
+                                        &lt;div class="course_author">&lt;img class="author_img" />{{ course.authors }}&lt;/div>
+                                        &lt;ng-content>&lt;/ng-content>
+                                    &lt;/div>
+                                &lt;/div>
+                            &lt;/div>
+                    &lt;/section>
+                    &lt;section class="sertion_comments" id="reviews">
+                        &lt;app-label [labelText]="'testimonial'">&lt;/app-label>
+                        &lt;div class="comments_title">
+                            &lt;h1>Creating A Community Of Life Long Learners.&lt;/h1>
+                        &lt;/div>
+                        &lt;div class="wrapper sertion_comments-wrapper">
+                            &lt;app-comment *ngFor="let item of comments" [comment]="item">&lt;/app-comment>
+                        &lt;/div>
+                    &lt;/section>
+                    &lt;section class="sertion_posts" id="blog">
+                        &lt;div class="post_label">
+                            &lt;app-label [labelText]="'BLOG POST'">&lt;/app-label>
+                        &lt;/div>
+                        &lt;div class="posts_title">
+                            &lt;h1>Most Popular Post.&lt;/h1>
+                            &lt;app-button [iconWrap]="true" [btnClass]="'header_logout'" [buttonText]="'All Blog Post'"
+                                [type]="'button'" [iconName]="arrowIcon">&lt;/app-button>
+                        &lt;/div>
+                        &lt;div class="wrapper sertion_posts-wrapper">
+                            &lt;app-post *ngFor="let item of posts" [post]="item">
+                                &lt;app-button [iconWrap]="true" [btnClass]="'post_open'" [buttonText]="'Read More'" [type]="'button'"
+                                    [iconName]="arrowIcon">&lt;/app-button>
+                            &lt;/app-post>
+                        &lt;/div>
+                    &lt;/section>
+                &lt;/main>
+                &lt;footer class="footer">
+                    &lt;div class="footer_wrapper wrapper">
+                        &lt;div class="footer_logo">
+                            &lt;img src="assets/images/logo.png" alt="logo" class="courses_logo">
+                            &lt;p>Interdum velit laoreet id donec ultrices
+                                tincidunt arcu. Tincidunt tortor aliquam nulla
+                                facilisi cras fermentum odio eu.&lt;/p>
+                            &lt;ul class="social_links">
+                                &lt;li class="social_item">&lt;a>&lt;img src="assets/images/links/01.png" alt="link">&lt;/a>&lt;/li>
+                                &lt;li class="social_item">&lt;a>&lt;img src="assets/images/links/02.png" alt="link">&lt;/a>&lt;/li>
+                                &lt;li class="social_item">&lt;a>&lt;img src="assets/images/links/03.png" alt="link">&lt;/a>&lt;/li>
+                                &lt;li class="social_item">&lt;a>&lt;img src="assets/images/links/04.png" alt="link">&lt;/a>&lt;/li>
+                            &lt;/ul>
+                        &lt;/div>
+                        &lt;div class="footer_services">
+                            &lt;h3 class="title">Our Services:&lt;/h3>
+                            &lt;ul>
+                                &lt;li>Web development&lt;/li>
+                                &lt;li>UI/UX Design&lt;/li>
+                                &lt;li>Management&lt;/li>
+                                &lt;li>Digital Marketing&lt;/li>
+                                &lt;li>Blog News&lt;/li>
+                            &lt;/ul>
+                        &lt;/div>
+                        &lt;div class="footer_links">
+                            &lt;h3 class="title">Quick Links:&lt;/h3>
+                            &lt;ul>
+                                &lt;li>Templates&lt;/li>
+                                &lt;li>Blog and Article&lt;/li>
+                                &lt;li>Integrations&lt;/li>
+                                &lt;li>Webinars&lt;/li>
+                                &lt;li>Privacy & Policy&lt;/li>
+                            &lt;/ul>
+                        &lt;/div>
+                        &lt;div class="footer_galery">
+                            &lt;h3 class="title">Gallery&lt;/h3>
+                            &lt;ul class="galery_fotos">
+                                &lt;li class="galery_item">&lt;img src="assets/images/galery/01.png" alt="foto">&lt;/li>
+                                &lt;li class="galery_item">&lt;img src="assets/images/galery/02.png" alt="foto">&lt;/li>
+                                &lt;li class="galery_item">&lt;img src="assets/images/galery/03.png" alt="foto">&lt;/li>
+                                &lt;li class="galery_item">&lt;img src="assets/images/galery/04.png" alt="foto">&lt;/li>
+                                &lt;li class="galery_item">&lt;img src="assets/images/galery/05.png" alt="foto">&lt;/li>
+                                &lt;li class="galery_item">&lt;img src="assets/images/galery/06.png" alt="foto">&lt;/li>
+                            &lt;/ul>
+                        &lt;/div>
+                    &lt;/div>
+                    &lt;div class="copyright">Copyright © 2024 || All Rights Reserved&lt;/div>
+                &lt;/footer>
+            &lt;/body>
+
+            &lt;/html>
         </pre>
         <h3>CSS</h3>
-        <pre></pre>
+        <pre>
+            :root {
+                --primary-color: #0275d8;
+                --dark-color: #333333;
+                --light-color: #f4f4f4;
+                --danger-color: #d9534f;
+                --success-color: #5cb85c;
+                --warning-color: #f0ad4e;
+                --active: #704FE6;
+                --active2: #785DD7;
+                --white: white;
+                --shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+            }
+              
+            * {
+            box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+            }
+              
+            body {
+                font-family: 'Roboto', sans-serif;
+                font-size: 1rem;
+                line-height: 1.6;
+                background-color: var(--light-color);
+                color: --dark-color;
+                height: 100vh;
+            }
+            
+            .container {
+                margin: 0 auto;
+                overflow: hidden;
+                display: flex;
+                flex-direction: column;
+                min-height: 100%;
+            }
+            
+            main {
+                flex: 1 1 auto;
+            }
+            
+            .wrapper {
+                width: 1200px;
+                padding: 0 2rem;
+                margin: 0 auto;
+            }
+            
+            ul {
+                list-style-type: none;
+            }
+            
+            .invalid_text {
+                color: red;
+                font-size: 12px;
+            }
+
+            .container {
+                background-color: var(--white);
+              
+                .header {
+                  position: relative;
+              
+                  &_title {
+                    width: 350px;
+                    position: absolute;
+                    top: calc(50% - 60px);
+                    left: calc(50% - 175px);
+                    text-transform: uppercase;
+                    text-align: center;
+                    font-size: 30px;
+                    font-weight: 600;
+                    color: var(--active);
+                  }
+                }
+              
+                .wrapper {
+                  padding: 70px 0;
+                }
+            }
+            
+            .footer {
+                padding: 50px 0 0;
+                color: var(--white);
+                background-color: #0E2A46;
+              
+                &_wrapper {
+                  display: flex;
+                  justify-content: space-between;
+                  padding-bottom: 50px;
+                }
+              
+                &_logo {
+                  p {
+                    width: 300px;
+                  }
+              
+                  img {
+                    width: 150px;
+                  }
+              
+                  .social {
+                    &_links {
+                      margin-top: 20px;
+                      display: flex;
+                      align-items: center;
+                      gap: 15px;
+                    }
+              
+                    &_item {
+                      img {
+                        width: 40px;
+                        cursor: pointer;
+                
+                        &:hover {
+                          transform: scale(1.1);
+                        }
+                      }
+                    }
+                  }
+                }
+              
+                &_services,
+                &_links {
+                  li {
+                    cursor: pointer;
+              
+                    &:before {
+                      content: '>';
+                      font-size: 12px;
+                      margin-right: 10px;
+                      position: relative;
+                      bottom: 2px;
+                    }
+              
+                    &:hover {
+                      transform: scale(1.1);
+                    }
+                  }
+                }
+              
+                &_galery {
+                  flex: 0 0 300px;
+                  .galery {
+                    &_foros {
+                      display: flex;
+                      flex-wrap: wrap;
+                      align-items: center;
+                    }
+              
+                    &_item {
+                      cursor: pointer;
+                      display: inline-block;
+                      margin-bottom: 10px;
+              
+                      &:not(:nth-child(3)) {
+                        margin-right: 10px;
+                      }
+                    }
+                  }
+                }
+              }
+              
+              .title {
+                margin: 10px 0 20px;
+              }
+              
+              .copyright {
+                padding: 10px 0;
+                font-size: 12px;
+                text-align: center;
+                background-color: #222222;
+              }
+
+              .header {
+                width: 100%;
+                background-color: #FFF;
+                width: 100%;
+                padding: 20px 0;
+                border-bottom: 1px solid var(--light-color);
+              
+                &_wrapper {
+                  margin: 0 auto;
+                  display: flex;
+                  align-items: center;
+                  justify-content: space-between;
+                  width: 1200px;
+              
+                  a {
+                    cursor: pointer;
+                  }
+                }
+              
+                &_content {
+                  display: flex;
+                  align-items: center;
+                  justify-content: space-between;
+                }
+              
+                &_links{
+                  display: flex;
+                  align-items: center;
+                  justify-content: space-around;
+              
+                  .links_item {
+                    margin: 0 20px;
+                    cursor: pointer;
+              
+                    a {
+                      display: block;
+                      text-align: center;
+                      width: 80px;
+                      padding: 5px 10px;
+                      text-decoration: none;
+                      color: var(--dark-color);
+              
+                      &:hover {
+                        color: var(--active);
+                        background-color: #E9E2FF;
+                        border-radius: 20px;
+                      }
+                    }
+                  }
+              
+                  .active {
+                    border: 1px solid var(--active);
+                    border-radius: 20px;
+              
+                    a {
+                      color: var(--active);
+                    }
+                  }
+                }
+              
+                &_logout {
+                  justify-self: right;
+                }
+              }
+              
+              .courses_logo {
+                width: 80%;
+              }
+              
+              .btn_arrow {
+                width: 20px;
+                height: 20px;
+                background-color: #FFF;
+              }
+            
+              .course {
+                &_card {
+                  display: flex;
+                  align-items: stretch;
+                  justify-content: space-between;
+                  border: 1px dashed var(--active);
+                  border-radius: 10px;
+                  padding: 15px;
+                  box-shadow: var(--shadow);
+                  height: 100%;
+                }
+              
+                &_content {
+                  display: flex;
+                  flex-direction: column;
+                
+                  img {
+                    max-width: 100%;
+                    flex: 0 0 auto;
+                  }
+                }
+              
+                &_title {
+                  margin-top: 20px;
+                }
+              
+                &_info {
+                  display: flex;
+                  align-items: center;
+                  justify-content: space-between;
+                  padding: 10px;
+                  margin-top: 15px;
+                  border-radius: 8px;
+                  list-style-type: none;
+                  background-color: var(--white);
+                }
+              
+                &_action {
+                  display: flex;
+                  align-items: center;
+                  justify-content: space-between;
+                  margin-top: 15px;
+              
+                  ::ng-deep app-button {
+                    flex: 0 0 auto;
+                  }
+                }
+              
+                &_author {
+                  flex: 1 1 auto;
+                  display: flex;
+                  align-items: center;
+              
+                  img {
+                    width: 40px;
+                    height: 40px;
+                    border: 1px solid var(--active);
+                    border-radius: 20px;
+                    background-color: var(--white);
+                    margin-right: 8px;
+                  }
+                }
+              }
+              
+              .content_left{
+                width: 65%;
+              }
+              
+              .content_right {
+                width: 30%;
+              }              
+        </pre>
     </body>
 </html>
