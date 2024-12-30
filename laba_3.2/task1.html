@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="./styles/styles.css" rel="stylesheet" />
+        <style>
+            h3 {
+                text-transform: uppercase;
+            }
+            p {
+                margin: 5px 0;
+            }
+            h4 {
+                margin: 10px 0;
+            }
+            .title {
+                margin-top: 15px;
+            }
+
+            img {
+                width: 50%;
+            }
+        </style>
+    </head>
+    <body>
+        <h3>ЗАВДАННЯ 1</h3>
+        <p>
+            Напишіть наступні функції:
+            <code>createProduct(obj, callback)</code> - приймає об&#39;єкт товару без
+            <code>id</code>, а також коллбек. Функція створює об&#39;єкт товару,
+            додаючи йому унікальний ідентифікатор у
+            властивість <code>id</code> та викликає коллбек передаючи йому
+            створений об&#39;єкт.
+            <code>logProduct(product)</code> - коллбек що приймає об&#39;єкт
+            продукту і логуючий його в консоль
+            <code>logTotalPrice(product)</code> - коллбек, що приймає об&#39;єкт
+            продукту і логіює загальну вартість товару в консоль
+        </p>
+        <h4>JS CODE</h4>
+        <pre>
+            function createProduct(obj, callback) {
+                callback({
+                    ...obj,
+                    id: Math.floor(Math.random() * 1000)
+                });
+            }
+            
+            function logProduct(product) {
+                console.log(`Product: ${JSON.stringify(product)}`);
+            }
+            
+            function logTotalPrice(product) {
+                const totalPrice = product.price * product.quantity;
+                console.log(`Total Price: ${totalPrice}`);
+            }
+        </pre>
+        <h4>CONSOLE</h4>
+        <pre>
+            createProduct({name: 'banana', price: 20, quantity: 3}, logProduct);
+            createProduct({name: 'banana', price: 20, quantity: 3}, logTotalPrice);
+            createProduct({name: 'apple', price: 10, quantity: 5}, logProduct);
+            createProduct({name: 'apple', price: 10, quantity: 5}, logTotalPrice);
+            createProduct({name: 'orange', price: 30, quantity: 2}, logProduct);
+            createProduct({name: 'orange', price: 30, quantity: 2}, logTotalPrice);
+        </pre>
+        <img src="./img/3.2_01.png" alt="console">
+    </body>
+</html>

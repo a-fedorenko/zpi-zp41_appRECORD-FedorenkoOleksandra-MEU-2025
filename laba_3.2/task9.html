@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="./styles/styles.css" rel="stylesheet" />
+        <style>
+            h3 {
+                text-transform: uppercase;
+            }
+            p {
+                margin: 5px 0;
+            }
+            h4 {
+                margin: 10px 0;
+            }
+            .title {
+                margin-top: 15px;
+            }
+
+            img {
+                width: 50%;
+            }
+        </style>
+    </head>
+    <body>
+        <h3>ЗАВДАННЯ 9</h3>
+        <p>
+            Поверніть об&#39;єкт, в якому вказано кількість тегів.
+            Очікуваний результат { js: 3, nodejs: 3, html: 2, css: 2, react: 2 }
+            <pre>
+                const tweets = [
+                    { id: &quot;000&quot;, likes: 5, tags: [&quot;js&quot;, &quot;nodejs&quot;] },
+                    { id: &quot;001&quot;, likes: 2, tags: [&quot;html&quot;, &quot;css&quot;] },
+                    { id: &quot;002&quot;, likes: 17, tags: [&quot;html&quot;, &quot;js&quot;, &quot;nodejs&quot;] },
+                    { id: &quot;003&quot;, likes: 8, tags: [&quot;css&quot;, &quot;react&quot;] },
+                    { id: &quot;004&quot;, likes: 0, tags: [&quot;js&quot;, &quot;nodejs&quot;, &quot;react&quot;] },
+                ];
+            </pre>
+        </p>
+        <h4>JS CODE</h4>
+        <pre>
+            const tweets = [
+                { id: "000", likes: 5, tags: ["js", "nodejs"] },
+                { id: "001", likes: 2, tags: ["html", "css"] },
+                { id: "002", likes: 17, tags: ["html", "js", "nodejs"] },
+                { id: "003", likes: 8, tags: ["css", "react"] },
+                { id: "004", likes: 0, tags: ["js", "nodejs", "react"] },
+            ];
+
+            function getTags(tweets) {
+                return tweets.reduce((acc, tweet) => {
+                    tweet.tags.forEach(tag => {
+                        acc[tag] = acc[tag] ? acc[tag] + 1 : 1;
+                    });
+                    return acc;
+                }, {});
+            }
+        </pre>
+        <h4>CONSOLE</h4>
+        <pre>
+            console.log(getTags(tweets));
+        </pre>
+        <img src="./img/3.2_05.png" alt="console">
+    </body>
+</html>

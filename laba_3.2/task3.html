@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="./styles/styles.css" rel="stylesheet" />
+        <style>
+            h3 {
+                text-transform: uppercase;
+            }
+            p {
+                margin: 5px 0;
+            }
+            h4 {
+                margin: 10px 0;
+            }
+            .title {
+                margin-top: 15px;
+            }
+
+            img {
+                width: 50%;
+            }
+        </style>
+    </head>
+    <body>
+        <h3>ЗАВДАННЯ 3</h3>
+        <p>
+            З об&#39;єкту medicines потрібно отримати масив   в якому
+            будуть лише назви препаратів.
+            З масиву потрібно прибрати медикаменти , в яких строк
+            зберігання уже пройшов . У новому масиві відсортувати
+            медикаменти у хронологічному порядку.
+              Результат вивести у консоль.
+            Застосувати стрілочні функції.
+            Напишіть наступні функції:
+            <pre>
+                <code>
+                    const medicines = {
+                        Агалгін: new Date(&quot;2022-05-01&quot;),
+                        Ношпа: new Date(&quot;2025-07-02&quot;),
+                        Альфахолін: new Date(&quot;2024-12-21&quot;),
+                        Аспірин: new Date(&quot;2022-08-15&quot;),
+                        Аспаркам: new Date(&quot;2025-04-18&quot;),
+                    };
+                </code>
+            </pre>
+        </p>
+        <h4>JS CODE</h4>
+        <pre>
+            const medicines = {
+                Агалгін: new Date("2022-05-01"),
+                Ношпа: new Date("2025-07-02"),
+                Альфахолін: new Date("2024-12-21"),
+                Аспірин: new Date("2022-08-15"),
+                Аспаркам: new Date("2025-04-18"),
+            };
+            
+            const getMedicinesNames = (medicines) => {
+                return Object.keys(medicines);
+            };
+            
+            const removeExpiredMedicines = (medicines) => {
+                const currentDate = new Date();
+                return Object.entries(medicines)
+                    .filter(([medicine, expirationDate]) => expirationDate > currentDate)
+                    .reduce((acc, [medicine, expirationDate]) => {
+                        acc[medicine] = expirationDate;
+                        return acc;
+                    }, {});
+            };
+            
+            const sortByExpirationDate = (medicines) => {
+                return Object.entries(medicines)
+                    .sort(([, a], [, b]) => a - b)
+                    .reduce((acc, [medicine, expirationDate]) => {
+                        acc[medicine] = expirationDate;
+                        return acc;
+                    }, {});
+            };
+        </pre>
+        <h4>CONSOLE</h4>
+        <pre>
+            const validMedicines = removeExpiredMedicines(medicines);
+            const sortedMedicines = sortByExpirationDate(validMedicines);
+            const names = getMedicinesNames(sortedMedicines);
+            
+            console.log(names);
+        </pre>
+        <img src="./img/3.2_02.png" alt="console">
+    </body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="./styles/styles.css" rel="stylesheet" />
+        <style>
+            h3 {
+                text-transform: uppercase;
+            }
+            p {
+                margin: 5px 0;
+            }
+            h4 {
+                margin: 10px 0;
+            }
+            .title {
+                margin-top: 15px;
+            }
+
+            img {
+                width: 50%;
+            }
+        </style>
+    </head>
+    <body>
+        <h3>ЗАВДАННЯ 5</h3>
+        <p>
+            Напишіть функцію, яка приймає массив об&#39;єктів і
+            повертає новий массив. Зробіть знижку 20 % на всі
+            фрукти у масиві. Надайте ід для кожного продукту
+            <pre>
+                const fruits = [
+                    { name: &quot;apple&quot;, price: 200 },
+                    { name: &quot;orange&quot;, price: 300 },
+                    { name: &quot;grapes&quot;, price: 750 },
+                ];
+            </pre>
+        </p>
+        <h4>JS CODE</h4>
+        <pre>
+            const fruits = [
+                { name: "apple", price: 200 },
+                { name: "orange", price: 300 },
+                { name: "grapes", price: 750 },
+            ];
+
+            function discountFruits(fruits) {
+                return fruits.map((fruit, index) => {
+                    return {
+                        ...fruit,
+                        id: index + 1,
+                        price: fruit.price * 0.8
+                    };
+                });
+            }
+        </pre>
+        <h4>CONSOLE</h4>
+        <pre>
+            console.log(discountFruits(fruits));
+        </pre>
+        <img src="./img/3.2_03.png" alt="console">
+    </body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="./styles/styles.css" rel="stylesheet" />
+        <style>
+            h3 {
+                text-transform: uppercase;
+            }
+            p {
+                margin: 5px 0;
+            }
+            h4 {
+                margin: 10px 0;
+            }
+            .title {
+                margin-top: 15px;
+            }
+
+            img {
+                width: 50%;
+            }
+        </style>
+    </head>
+    <body>
+        <h3>ЗАВДАННЯ 10</h3>
+        <p>
+            Напишіть функцію checkBrackets(str) яка приймає
+            рядок js коду (someFn) і перевіряє правильність закриття дужок () {} []
+            Якщо рядок містить коректний код функція повертає true.
+            В іншому випадку повертає false
+        </p>
+        <h4>JS CODE</h4>
+        <pre>
+            function checkBrackets(str) {
+                let stack = [];
+                let brackets = {
+                    '(': ')',
+                    '{': '}',
+                    '[': ']'
+                };
+                for (let i = 0; i < str.length; i++) {
+                    if (str[i] === '(' || str[i] === '{' || str[i] === '[') {
+                        stack.push(str[i]);
+                    } else if (str[i] === ')' || str[i] === '}' || str[i] === ']') {
+                        let last = stack.pop();
+                        if (str[i] !== brackets[last]) {
+                            return false;
+                        }
+                    }
+                }
+                return stack.length === 0;
+            }
+        </pre>
+        <h4>CONSOLE</h4>
+        <pre>
+            const getTags_1 = `function getTags(tweets) {
+                return tweets.reduce((acc, tweet) => {
+                    tweet.tags.forEach(tag => {
+                        acc[tag] = acc[tag] ? acc[tag] + 1 : 1;
+                    });
+                    return acc;
+                }, {});
+            }`;
+            
+            const getTags_2 = `function getTags(tweets) {
+                return tweets.reduceacc, tweet) => {
+                    tweet.tags.forEach(tag => {
+                        acc[tag] = acc[tag ? acc[tag] + 1 : 1;
+                    });
+                    return acc;
+                }, {);
+            }`;
+
+            console.log(checkBrackets(getTags_1));
+            console.log(checkBrackets(getTags_2));
+        </pre>
+        <img src="./img/3.2_06.png" alt="console">
+    </body>
+</html>

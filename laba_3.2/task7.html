@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="./styles/styles.css" rel="stylesheet" />
+        <style>
+            h3 {
+                text-transform: uppercase;
+            }
+            p {
+                margin: 5px 0;
+            }
+            h4 {
+                margin: 10px 0;
+            }
+            .title {
+                margin-top: 15px;
+            }
+
+            img {
+                width: 50%;
+            }
+        </style>
+    </head>
+    <body>
+        <h3>ЗАВДАННЯ 7</h3>
+        <p>
+            Напиши клас Client який створює об&#39;єкт
+            з ​​властивостями <code>login email</code>
+            Оголоси приватні властивості <code>#login #email</code>,
+            доступ до яких зроби через геттер та сеттер <code>login email</code>
+        </p>
+        <h4>JS CODE</h4>
+        <pre>
+            class Client {
+                #login;
+                #email;
+
+                constructor(login, email) {
+                    this.#login = login;
+                    this.#email = email;
+                }
+
+                get login() {
+                    return this.#login;
+                }
+
+                set login(value) {
+                    this.#login = value;
+                }
+
+                get email() {
+                    return this.#email;
+                }
+
+                set email(value) {
+                    this.#email = value;
+                }
+            }
+        </pre>
+        <h4>CONSOLE</h4>
+        <pre>
+            const client = new Client('user', 'user@gmail.com');
+            console.log(`Client: ${client.login}, ${client.email}`);
+            client.login = 'admin';
+            client.email = 'admin@gmail.com';
+            console.log(`Client: ${client.login}, ${client.email}`);
+        </pre>
+        <img src="./img/3.2_04.png" alt="console">
+    </body>
+</html>
