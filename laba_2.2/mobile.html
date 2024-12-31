@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>External Styles</title>
+        <link rel="stylesheet" href="./styles.css">
+    </head>
+    <body>
+        <h3>CSS</h3>
+        <pre>
+            @media screen and (max-width: 480px) {
+                * {
+                    margin: 0;
+                }
+                
+                .content-wrapper {
+                    max-width: 480px;
+                    width: 100%;
+                }
+            
+                .title,
+                .item-text {
+                    font-size: 14px;
+                    padding: 5px;
+                }
+            
+                .links {
+                    flex-wrap: wrap;
+                    justify-content: space-around;
+                    gap: 10px;
+            
+                    .links-item {
+                        width: 20%;
+                        box-sizing: border-box;
+                        margin-bottom: 10px;
+                        padding: 8px;
+            
+                        .item-text {
+                            font-size: 10px;
+                        }
+                    }
+                }
+            
+                .add-section {
+                    padding: 10px 10px 40px;
+                    margin-top: 10px;
+            
+                    .add-wrapper {
+                        flex-direction: column;
+                        align-items: center;
+            
+                        .add-img {
+                            margin: 20px 0;
+                            width: 60%;
+                        }
+                    
+                        .add-list {
+                            flex-direction: column;
+                            gap: 20px;
+                        }
+                    }
+                }
+            
+                .java-section {
+                    padding: 10px;
+            
+                    .java-title {
+                        h3 {
+                            line-height: 1;
+                        }
+                    }
+            
+                    .java-wrapper {
+                        flex-direction: column;
+                        align-items: center;
+            
+                        .java-img {
+                            margin: 20px 0;
+                            width: 70%;
+                            max-width: none;
+                        }
+                    
+                        .java-list {
+                            width: 100%;
+                            margin-top: 30px;
+                        }
+                    }
+                }
+            
+                .footer {
+                    background-color: var(--dark-color);
+                    flex-direction: column;
+                    align-items: center;
+                    gap: 0;
+            
+                    .footer-copy {
+                        order: 1;
+                        text-align: center;
+                        margin-bottom: 15px;
+                    }
+                
+                    .footer-links {
+                        order: 0;
+                        flex-wrap: wrap;
+                        justify-content: center;
+                        margin: 15px 0;
+                
+                        .footer-link {
+                            width: 40px;
+                            height: 40px;
+                        }
+                    }
+                }
+            }
+        </pre>
+        <h3>Скріншот сторінки</h3>
+        <div style="display: flex;">
+            <img style="width: 50%;" src="./img/mobile_01.png" alt="img_example">
+            <img style="width: 50%;" src="./img/mobile_02.png" alt="img_example">
+        </div>
+    </body>
+</html>

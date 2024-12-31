@@ -3,31 +3,62 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="./styles/styles.css" rel="stylesheet" />
+        <link href="./styles.css" rel="stylesheet" />
         <style>
-            h3 {
-                text-transform: uppercase;
-            }
             p, h4 {
                 margin: 5px 0;
-            }
-            .title {
-                margin-top: 15px;
             }
         </style>
     </head>
     <body>
         <h3>Висновки:</h3>
         <p>
-            JavaScript використовується для створення інтерактивних і динамічних веб-сторінок. Основні завдання JS в HTML-документі:
-            JavaScript є основним інструментом для динамічних веб-сторінок. Масиви спрощують роботу з даними, а широкий набір методів дозволяє ефективно їх обробляти. Використання JS-сценаріїв надає змогу створювати інтерактивні програми, такі як калькулятори, списки та інші динамічні елементи.
+            Об'єкт у JavaScript — це структура даних, яка дозволяє зберігати дані у вигляді пар "ключ-значення". Ключами є строки, а значеннями можуть бути будь-які типи даних, включаючи інші об'єкти, функції чи масиви.
         </p>
+        <h4>Варіанти створення об'єкта</h4>
         <ol>
-            <li>Виконання дій при подіях (клік, наведення курсора, введення тексту).</li>
-            <li>Зміна вмісту сторінки без перезавантаження.</li>
-            <li>Валідація форм (перевірка введених даних).</li>
-            <li>Робота з кукісами (збереження даних на стороні клієнта).</li>
-            <li>Взаємодія з сервером (отримання та відправка даних).</li>
+            <li>Через літерал об'єкта:
+                <pre>
+                    const obj = {
+                        key1: "value1",
+                        key2: "value2",
+                    };                    
+                </pre>
+            </li>
+            <li>Через new <code>Object()</code>:
+                <pre>
+                    const obj = new Object();
+                    obj.key1 = "value1";
+                    obj.key2 = "value2";
+                </pre>
+            </li>
+            <li>Через клас:
+                <pre>
+                    class Person {
+                        constructor(name, age) {
+                            this.name = name;
+                            this.age = age;
+                        }
+                    }
+                    const person = new Person("Іван", 30);                    
+                </pre>
+            </li>
+            <li>За допомогою функції-конструктора:
+                <pre>
+                    function Person(name, age) {
+                        this.name = name;
+                        this.age = age;
+                    }
+                    const person = new Person("Іван", 30);                    
+                </pre>
+            </li>
+            <li>Створення через <code>Object.create()</code>:
+                <pre>
+                    const prototype = { greet() { console.log("Привіт"); } };
+                    const obj = Object.create(prototype);
+                    obj.name = "Іван";
+                </pre>
+            </li>
         </ol>
         <h4>Підключення JavaScript до HTML</h4>
         <ol>
@@ -52,64 +83,40 @@
                 </pre>
             </li>
         </ol>
-        <h4>Використання масивів у JS-сценаріях</h4>
-        <p>Масиви в JavaScript дозволяють зберігати кілька значень в одній змінній. Це потужний інструмент для роботи з великими обсягами даних.</p>
+        <h4>Масив об'єктів</h4>
+        <p>Масив об'єктів — це колекція кількох об'єктів, організованих у вигляді масиву.</p>
+        <pre>
+            const users = [
+                { id: 1, name: "Іван", age: 25 },
+                { id: 2, name: "Марія", age: 30 },
+                { id: 3, name: "Олег", age: 22 },
+            ];
+        </pre>
+        <h4>Деструктуризація об'єктів</h4>
+        <p>Деструктуризація дозволяє розпаковувати властивості об'єкта в окремі змінні.</p>
+        <pre>
+            const user = { name: "Іван", age: 25, email: "ivan@example.com" };
+            const { name, age } = user;
+        </pre>
+        <h4>Callback (Колбек)</h4>
+        <p>Колбек — це функція, яка передається як аргумент іншій функції і викликається пізніше.</p>
+        <pre>
+            function processUser(name, callback) {
+                console.log(`Привіт, ${name}!`);
+                callback();
+            }
+            function showSuccessMessage() {
+                console.log("Дія успішно виконана!");
+            }
+            processUser("Іван", showSuccessMessage);
+        </pre>
+        <h4>Стрілочні функції</h4>
         <ol>
-            <li>
-                <h4>Створення масиву:</h4>
-                <ul>
-                    <li>
-                        За допомогою квадратних дужок:
-                        <pre>
-                            let fruits = ['Apple', 'Banana', 'Cherry'];
-                        </pre>
-                    </li>
-                    <li>
-                        За допомогою конструктора <code>Array()</code>:
-                        <pre>
-                            let fruits = new Array('Apple', 'Banana', 'Cherry');
-                        </pre>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <h4>Методи роботи з масивами</h4>
-                <ul>
-                    <li>
-                        Додавання/видалення елементів:
-                        <pre>
-                            const fruits = ['яблуко', 'банан'];
-                            fruits.push('груша');    // Додати в кінець
-                            fruits.pop();            // Видалити останній
-                            fruits.shift();          // Видалити перший
-                            fruits.unshift('апельсин'); // Додати на початок
-                        </pre>
-                    </li>
-                    <li>
-                        Перебір масиву:
-                        <pre>
-                            const numbers = [1, 2, 3, 4, 5];
-                            numbers.forEach((num) => {
-                                console.log(num);
-                            });
-                        </pre>
-                    </li>
-                    <li>
-                        Пошук елементів:
-                        <pre>
-                            const doubled = numbers.map((num) => num * 2); // Множення всіх елементів на 2
-                            const filtered = numbers.filter((num) => num > 3); // Фільтрація (тільки > 3)
-                        </pre>
-                    </li>
-                    <li>
-                        Маніпуляції з даними:
-                        <pre>
-                            const doubled = numbers.map((num) => num * 2); // Множення всіх елементів на 2
-                            const filtered = numbers.filter((num) => num > 3); // Фільтрація (тільки > 3)
-                        </pre>
-                    </li>
-                </ul>
-            </li>
+            <li>Не мають власного this: Вони успадковують значення this з батьківського контексту.</li>
+            <li>Компактний синтаксис: Можна опустити фігурні дужки {} і return, якщо функція містить один вираз</li>
         </ol>
+        <pre>
+            const add = (a, b) => a + b;
+        </pre>
     </body>
 </html>

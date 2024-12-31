@@ -3,11 +3,8 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="./styles/styles.css" rel="stylesheet" />
+        <link href="./styles.css" rel="stylesheet" />
         <style>
-            h3 {
-                text-transform: uppercase;
-            }
             p {
                 margin: 5px 0;
             }
@@ -15,8 +12,8 @@
                 margin-top: 15px;
             }
             #image-container {
-            margin: 20px auto;
-            overflow: hidden;
+                margin: 20px auto;
+                overflow: hidden;
             }
             img {
                 max-width: 100%;
@@ -65,75 +62,71 @@
         </p>
         <h4>HTML</h4>
         <pre>
-            <code>
-                &lt;section>
-                    &lt;div id="image-container">
-                        &lt;img id="slideshow" src="./img/slide_1.png" alt="img"/>
+            &lt;section>
+                &lt;div id="image-container">
+                    &lt;img id="slideshow" src="./img/slide_1.png" alt="img"/>
+                &lt;/div>
+                &lt;form id="form">
+                    &lt;div class="form_content">
+                    &lt;div class="input_field">
+                        &lt;input class="input" id="width" type="number" placeholder="Width" value="1000">
                     &lt;/div>
-                    &lt;form id="form">
-                        &lt;div class="form_content">
-                        &lt;div class="input_field">
-                            &lt;input class="input" id="width" type="number" placeholder="Width" value="1000">
-                        &lt;/div>
-                        &lt;div class="input_field">
-                            &lt;input class="input" id="height" type="number" placeholder="Height" value="500">
-                        &lt;/div>
-                        &lt;div class="input_field">
-                            &lt;input class="input" id="interval" type="number" placeholder="Interval" value="800">
-                        &lt;/div>
-                        &lt;/div>
-                    &lt;/form>
-                    &lt;div>
-                        &lt;button onclick="start()">Запустити слайд-шоу&lt;/button>
-                        &lt;button onclick="stop()">Зупинити&lt;/button>
+                    &lt;div class="input_field">
+                        &lt;input class="input" id="height" type="number" placeholder="Height" value="500">
                     &lt;/div>
-                &lt;/section>
-            </code>
+                    &lt;div class="input_field">
+                        &lt;input class="input" id="interval" type="number" placeholder="Interval" value="800">
+                    &lt;/div>
+                    &lt;/div>
+                &lt;/form>
+                &lt;div>
+                    &lt;button onclick="start()">Запустити слайд-шоу&lt;/button>
+                    &lt;button onclick="stop()">Зупинити&lt;/button>
+                &lt;/div>
+            &lt;/section>
         </pre>
         <h4>JS CODE</h4>
         <pre>
-            <code>
-                let images = [
-                    './img/slide_1.png',
-                    './img/slide_2.png',
-                    './img/slide_3.png',
-                ];
-                const form = document.getElementById('form');
-                const imageElement = document.getElementById('slideshow');
-                let currentIndex = 0;
-                let timer = null;
+            let images = [
+                './img/slide_1.png',
+                './img/slide_2.png',
+                './img/slide_3.png',
+            ];
+            const form = document.getElementById('form');
+            const imageElement = document.getElementById('slideshow');
+            let currentIndex = 0;
+            let timer = null;
 
-                function start() {
-                    const width = form.elements['width'].value;
-                    const height = form.elements['height'].value;
-                    const interval = form.elements['interval'].value;
+            function start() {
+                const width = form.elements['width'].value;
+                const height = form.elements['height'].value;
+                const interval = form.elements['interval'].value;
 
-                    // Встановлюємо розміри зображення
-                    imageElement.style.width = `${width}px`;
-                    imageElement.style.height = `${height}px`;
-                    
-                    // Запуск слайдшоу
-                    changeImage();
-                    
-                    if (timer) {
-                        clearInterval(timer); // Уникнення дублювання таймера
-                    }
-
-                    timer = setInterval(changeImage, interval);
+                // Встановлюємо розміри зображення
+                imageElement.style.width = `${width}px`;
+                imageElement.style.height = `${height}px`;
+                
+                // Запуск слайдшоу
+                changeImage();
+                
+                if (timer) {
+                    clearInterval(timer); // Уникнення дублювання таймера
                 }
 
-                function changeImage() {
-                    imageElement.src = images[currentIndex];
-                    currentIndex = (currentIndex + 1) % images.length; // Циклічний індекс
-                }
+                timer = setInterval(changeImage, interval);
+            }
 
-                function stop() {
-                    if (timer) {
-                        clearInterval(timer); // Зупинити таймер
-                        timer = null;
-                    }
+            function changeImage() {
+                imageElement.src = images[currentIndex];
+                currentIndex = (currentIndex + 1) % images.length; // Циклічний індекс
+            }
+
+            function stop() {
+                if (timer) {
+                    clearInterval(timer); // Зупинити таймер
+                    timer = null;
                 }
-            </code>
+            }
         </pre>
         <h4>PROGRAM</h4>
         <section>

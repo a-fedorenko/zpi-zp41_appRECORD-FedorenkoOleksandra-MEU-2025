@@ -29,6 +29,7 @@
                 font-size: 14px;
                 height: 100%;
                 background-color: var(--white);
+                overflow-x: hidden;
             }
             
             ul {
@@ -40,7 +41,7 @@
                 display: flex;
                 flex-direction: column;
                 margin: 0 auto;
-                width: 85%;
+                width: 95%;
                 max-width: 1200px;
             }
             
@@ -58,12 +59,13 @@
             
             .links {
                 display: flex;
+                flex-wrap: wrap;
                 align-items: center;
                 justify-content: space-between;
-                gap: 20px;
             
                 .links-item {
-                    width: 12%;
+                    flex: 0 0 11%;
+                    box-sizing: border-box;
                     background-color:  var(--dark-color1);
                     padding: 15px;
                     display: flex;
@@ -156,13 +158,14 @@
                     }
             
                     .add-list {
+                        flex: 0 0 70%;
                         display: flex;
                         flex-wrap: wrap;
                         margin-top: 20px;
                         gap: 15px;
             
                         .add-item {
-                            flex: 1 1 45%;
+                            flex: 0 0 45%;
                             display: flex;
                             align-items: start;
                             gap: 10px;
@@ -214,6 +217,7 @@
                     }
             
                     h3 {
+                        margin-top: 8px;
                         font-size: 25px;
                         line-height: 0.8;
                     }
@@ -222,11 +226,12 @@
                 .java-wrapper {
                     display: flex;
                     justify-content: space-between;
-                    padding: 30px 0 40px;
+                    padding: 30px 20px 40px;
             
                     .java-img {
-                        flex: 0 0 23%;
+                        flex: 1 1 23%;
                         aspect-ratio: 1;
+                        max-width: 30%;
                         margin: 0 15px 0 0;
                         box-sizing: border-box;
                         background-color: var(--white);
@@ -323,6 +328,20 @@
                     }
                 }
             }
+            
+            @media screen and (min-width: 769px) and (max-width: 1024px) {
+                .links {
+                    .links-item {
+                        flex: 0 0 22%;
+                        width: 10em;
+                        margin-bottom: 15px;
+                    }
+                }
+            }
         </pre>
+        <h3>Скріншот сторінки</h3>
+        <div style="text-align: center;">
+            <img style="width: 100%;" src="./img/destop_01.png" alt="img_example">
+        </div>
     </body>
 </html>

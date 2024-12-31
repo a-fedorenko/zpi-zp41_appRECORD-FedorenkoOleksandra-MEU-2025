@@ -2,10 +2,6 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
-img {
-    width: 60%;
-}
-
 h3 {
     text-transform: uppercase;
 }
@@ -15,4 +11,16 @@ pre {
     border-radius: 10px;
     width: fit-content;
     padding: 15px 30px;
+}
+
+h3 {
+    text-transform: uppercase;
+}
+
+p {
+    margin: 5px 0;
+}
+
+.title {
+    margin-top: 15px;
 }

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>External Styles</title>
+        <link rel="stylesheet" href="./styles.css">
+    </head>
+    <body>
+        <h3>CSS</h3>
+        <pre>
+            @media screen and (min-width: 481px) and (max-width: 768px) {
+                * {
+                    margin: 0;
+                }
+                .content-wrapper {
+                    max-width: 768px;
+                    width: 95%;
+                    padding: 10px;
+                }
+            
+                .title {
+                    font-size: 18px;
+                }
+            
+                .item-text {
+                    font-size: 16px;
+                }
+            
+                .links {
+                    flex-wrap: wrap;
+                    gap: 0;
+            
+                    .links-item {
+                        width: 10em;
+                        margin-bottom: 15px;
+                    }
+                }
+            
+                .add-section {
+                    padding: 0 0 20px;
+                    
+                    .add-wrapper {
+                        align-items: end;
+            
+                        .add-img {
+                            flex: 0 0 40%;
+                            height: 30%;
+            
+                            img {
+                                width: 90%;
+                                bottom: -20px;
+                                left: 0;
+                            }
+                        }
+                    
+                        .add-list {
+                            flex-direction: column;
+                            flex: 0 0 50%;
+                            gap: 15px;
+            
+                            .add-item {
+                                .add-icon {
+                                    flex: 0 0 15px;
+                                    
+                                    img {
+                                        width: 25px;
+                                        top: -12px;
+                                        left: -2px;
+                                    }
+                                }
+            
+                                .add-text {
+                                    h4 {
+                                        font-size: 12px;
+                                    }
+                                    
+                                    p {
+                                        font-size: 12px;
+                                        line-height: 1.2;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            
+                .java-section {
+                    .java-wrapper {
+                        align-items: center;
+                
+                        .java-img {
+                            flex: 0 0 40%;
+                            height: 40%;
+            
+                            img {
+                                width: 110%;
+                                left: 0;
+                            }
+                        }
+                    
+                        .java-list {
+                            width: 50%;
+                        }
+                    }
+                }
+            
+                .footer {
+                    flex-direction: row;
+                    justify-content: space-between;
+            
+                    .footer-copy {
+                        padding-top: 0;
+                        text-align: left;
+                        line-height: 50px;
+                    }
+                
+                    .footer-links {
+                        justify-content: space-around;
+                        
+                        .footer-link {
+                            width: 50px;
+                            height: 50px;
+                        }
+                    }
+                }   
+            }
+        </pre>
+        <h3>Скріншот сторінки</h3>
+        <div style="text-align: center;">
+            <img style="width: 100%;" src="./img/tablet_01.png" alt="img_example">
+        </div>
+    </body>
+</html>

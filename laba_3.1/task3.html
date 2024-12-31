@@ -3,22 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="./styles/styles.css" rel="stylesheet" />
-        <style>
-            h3 {
-                text-transform: uppercase;
-            }
-            p {
-                margin: 5px 0;
-            }
-            .title {
-                margin-top: 15px;
-            }
-
-            img {
-                width: 50%;
-            }
-        </style>
+        <link href="./styles.css" rel="stylesheet" />
     </head>
     <body>
         <h3>ЗАВДАННЯ 3</h3>
@@ -41,27 +26,23 @@
         </p>
         <h4>JS CODE</h4>
         <pre>
-            <code>
-                function filterArray(numbers, value) {
-                    const filteredNumbers = [];
-                    for (let i = 0; i < numbers.length; i ++) {
-                        if (numbers[i] > value) {
-                            filteredNumbers.push(numbers[i]);
-                        }
+            function filterArray(numbers, value) {
+                const filteredNumbers = [];
+                for (let i = 0; i < numbers.length; i ++) {
+                    if (numbers[i] > value) {
+                        filteredNumbers.push(numbers[i]);
                     }
-                    return filteredNumbers;
                 }
-            </code>
+                return filteredNumbers;
+            }
         </pre>
         <h4>CONSOLE</h4>
         <pre>
-            <code>
-                console.log(filterArray([1, 2, 3, 4, 5], 3));
-                console.log(filterArray([1, 2, 3, 4, 5], 4));
-                console.log(filterArray([1, 2, 3, 4, 5], 5));
-                console.log(filterArray([12, 24, 8, 41, 76], 38));
-                console.log(filterArray([12, 24, 8, 41, 76], 20));
-            </code>
+            console.log(filterArray([1, 2, 3, 4, 5], 3));
+            console.log(filterArray([1, 2, 3, 4, 5], 4));
+            console.log(filterArray([1, 2, 3, 4, 5], 5));
+            console.log(filterArray([12, 24, 8, 41, 76], 38));
+            console.log(filterArray([12, 24, 8, 41, 76], 20));
         </pre>
         <img src="./img/3.1_03.png" alt="console">
     </body>
