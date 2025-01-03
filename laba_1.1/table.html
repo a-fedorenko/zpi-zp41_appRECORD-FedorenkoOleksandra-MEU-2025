@@ -7,19 +7,200 @@
     </head>
     <body>
         <h3>HTML</h3>
-        <img src="./img/img_01.png" alt="code_example">
+        <pre>
+            &lt;table class="course-details">
+                &lt;tr>
+                &lt;td style="width: 75%;" class="course-info">
+                    &lt;table>
+                        &lt;tr>
+                            &lt;td>
+                                &lt;img src="assets/images/course_img.png" alt="Course Image" style="width: 100%; height: auto;">
+                            &lt;/td>
+                        &lt;/tr>
+                        &lt;tr>
+                            &lt;td>
+                                &lt;h1>Web Development Fully Complete Guideline&lt;/h1>
+                                &lt;p>Lesson 10 | 9:00AM - 1:00PM | Students 20+&lt;/p>
+                                &lt;div class="rating">
+                                    &lt;span>&#9733;&lt;/span>
+                                    &lt;span>&#9733;&lt;/span>
+                                    &lt;span>&#9733;&lt;/span>
+                                    &lt;span>&#9733;&lt;/span>
+                                    &lt;span>&#9734;&lt;/span>
+                                    &lt;span>(4.7)&lt;/span>
+                                &lt;/div>
+                            &lt;/td>
+                        &lt;/tr>
+                        &lt;tr>
+                            &lt;td>
+                                &lt;div class="button-group">
+                                    &lt;a href="#">Overview&lt;/a>
+                                    &lt;a href="#">Curriculum&lt;/a>
+                                    &lt;a href="#">Instructor&lt;/a>
+                                    &lt;a href="#">Reviews&lt;/a>
+                                &lt;/div>
+                            &lt;/td>
+                        &lt;/tr>
+                        &lt;tr>
+                            &lt;td>
+                                &lt;h2>Course Description&lt;/h2>
+                                &lt;p>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                                    magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                                    commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                                    pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim..
+                                &lt;/p>
+                                &lt;p style="margin-bottom: 20px;">
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                                    magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                                    commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum..
+                                &lt;/p>
+
+                                &lt;h2>What Will I Learn From This Course?&lt;/h2>
+                                &lt;p>
+                                    Himenaeos. Vestibulum sollicitudin varius mauris non dignissim. Sed quis iaculis est. Nulla quam neque,
+                                    interdum vitae fermentum lacinia, interdum eu magna. Mauris non posuere tellus. Donec quis euismod tellus.
+                                    Nam vel lacus eu nisl bibendum accumsan vitae vitae nibh. Nam nec eros id magna hendrerit sagittis Nullam
+                                    sed mi non odio feugiat volutpat sit amet nec elit. Maecenas id hendrerit ipsum
+                                &lt;/p>
+                            &lt;/td>
+                        &lt;/tr>
+                    &lt;/table>
+                &lt;/td>
+                &lt;td>
+                    &lt;table style="width: 25%; padding: 25px; background-color: #E8E8F4;">
+                        &lt;tr>
+                            &lt;td>
+                                &lt;img [src]="selectedCourse.url" alt="Sidebar Image">
+                            &lt;/td>
+                        &lt;/tr>
+                        &lt;tr>
+                            &lt;td>
+                                &lt;h2>Course Fee&lt;/h2>
+                                &lt;p>&lt;strong>Price:&lt;/strong> &lt;span style="text-decoration: line-through;">$120&lt;/span> $60&lt;/p>
+                                &lt;p>&lt;strong>Guarantee:&lt;/strong> 29-Day Money-Back Guarantee&lt;/p>
+                                &lt;a href="#" class="buy-now">BUY NOW&lt;/a>
+                            &lt;/td>
+                        &lt;/tr>
+                        &lt;tr>
+                            &lt;td>
+                                &lt;h3>Course Details&lt;/h3>
+                                &lt;p>&lt;strong>Start Date:&lt;/strong> 4:00 PM - 6:00 PM&lt;/p>
+                                &lt;p>&lt;strong>Enrolled:&lt;/strong> 100&lt;/p>
+                                &lt;p>&lt;strong>Lectures:&lt;/strong> 80&lt;/p>
+                                &lt;p>&lt;strong>Skill Level:&lt;/strong> Basic&lt;/p>
+                                &lt;p>&lt;strong>Class Days:&lt;/strong> Monday-Friday&lt;/p>
+                                &lt;p>&lt;strong>Language:&lt;/strong> English&lt;/p>
+                            &lt;/td>
+                        &lt;/tr>
+                    &lt;/table>
+                &lt;/td>
+                &lt;/tr>
+            &lt;/table>
+        </pre>
         <h3>CSS</h3>
         <pre class="css_example">
-            .course_content {
-                display: flex;
-                flex-direction: column;
-                
-                img {
-                    max-width: 100%;
-                    flex: 0 0 auto;
+            .container {
+                background-color: var(--white);
+              
+                .header {
+                  position: relative;
+              
+                  &_title {
+                    width: 350px;
+                    position: absolute;
+                    top: calc(50% - 60px);
+                    left: calc(50% - 175px);
+                    text-transform: uppercase;
+                    text-align: center;
+                    font-size: 30px;
+                    font-weight: 600;
+                    color: var(--active);
+                  }
                 }
-            }
+              
+                .wrapper {
+                  .course {
+                    &-details {
+                      margin: 20px 0 100px;
+                    }
+              
+                    &-info {
+                      table {
+                        margin-right: 20px;
+                      }
+                    }
+                  }
+                  
+                  > table {
+                    width: 100%;
+                    border-collapse: collapse;
+                  }
+              
+                  td {
+                    vertical-align: top;
+                  }
+              
+                  .course-header,
+                  .course-description,
+                  .button-group {
+                    margin-bottom: 20px;
+                  }
+              
+                  .rating {
+                    display: table;
+                    margin-top: 10px;
+                  }
+              
+                  .rating span {
+                    color: gold;
+                    font-size: 1.2em;
+                    display: table-cell;
+                  }
+              
+                  .button-group {
+                    display: flex;
+                    gap: 10px;
+                    justify-content: flex-start;
+                    margin-top: 20px;
+                  }
+              
+                  .button-group a {
+                    text-align: center;
+                    padding: 10px 20px;
+                    text-decoration: none;
+                    border-radius: 5px;
+                    background-color: #6c63ff;
+                    color: white;
+                  }
+              
+                  .button-group a:hover {
+                    background-color: #554bff;
+                  }
+              
+                  .sidebar img {
+                    width: 100%;
+                    border-radius: 10px;
+                    margin-bottom: 20px;
+                  }
+              
+                  .buy-now {
+                    text-decoration: none;
+                    background-color: #6c63ff;
+                    color: white;
+                    display: block;
+                    text-align: center;
+                    padding: 10px;
+                    border-radius: 5px;
+                    margin: 20px;
+                  }
+              
+                  .buy-now:hover {
+                    background-color: #554bff;
+                  }
+                }
+              } 
         </pre>
-        <img src="./img/img_02.png" alt="img_example">
+        <img style="width: 80%;" src="./img/table_01.png" alt="img_example">
     </body>
 </html>
