@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="./styles.css" rel="stylesheet" />
+    </head>
+    <body>
+        <p>
+            У звітному HTML-документі створити <code>html</code>-розміту,
+            яка складається з наступних елементів: текст, кнопка,
+            два інпута (поля введення).
+            Після натискання кнопки &quot;SWAP ME&quot; здійснюється
+            обмін вмістом між двома інпутами.
+            Ви можете натиснути на неї кілька разів або вручну
+            змінити вміст інпутів.
+        </p>
+        <h4>PROGRAM</h4>
+        <section class="form__section">
+            <h3 class="form__title">ЗАВДАННЯ 2</h3>
+            <form action="swap" name="swapeAction">
+                <button onclick="swapeValue()">SWAP ME</button>
+                <input id="left" name="left" type="text">
+                <input id="right" name="right" type="text">
+            </form>
+        </section>
+        <h4>JS CODE</h4>
+        <pre>
+            function swapeValue() {
+                preventDefault();
+    
+                let inputLeft = document.getElementById("left");
+                let inputRight = document.getElementById("right");
+                
+                const leftValue = getValue(inputLeft.name);
+                const rightValue = getValue(inputRight.name);
+    
+                inputLeft.value = rightValue;
+                inputRight.value = leftValue;
+            }
+    
+            function preventDefault() {
+                document.forms["swapeAction"].addEventListener("click", function(event){
+                    event.preventDefault()
+                });
+            }
+    
+            function getValue(name) {
+                return document.forms["swapeAction"][name].value;
+            }
+        </pre>
+        <h4>HTML</h4>
+        <pre>
+            &lt;section class="form__section">
+                &lt;h3 class="form__title">ЗАВДАННЯ 2&lt;/h3>
+                &lt;form action="swap" name="swapeAction">
+                    &lt;button onclick="swapeValue()">SWAP ME&lt;/button>
+                    &lt;input id="left" name="left" type="text">
+                    &lt;input id="right" name="right" type="text">
+                &lt;/form>
+            &lt;/section>
+        </pre>
+    </body>
+    <script>
+        function swapeValue() {
+            preventDefault();
+
+            let inputLeft = document.getElementById("left");
+            let inputRight = document.getElementById("right");
+            
+            const leftValue = getValue(inputLeft.name);
+            const rightValue = getValue(inputRight.name);
+
+            inputLeft.value = rightValue;
+            inputRight.value = leftValue;
+        }
+
+        function preventDefault() {
+            document.forms["swapeAction"].addEventListener("click", function(event){
+                event.preventDefault()
+            });
+        }
+
+        function getValue(name) {
+            return document.forms["swapeAction"][name].value;
+        }
+    </script>
+</html>

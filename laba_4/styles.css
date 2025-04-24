@@ -1,0 +1,43 @@
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+h3 {
+    text-transform: uppercase;
+}
+
+pre {
+    background-color: white;
+    border-radius: 10px;
+    width: fit-content;
+    padding: 15px 30px;
+}
+
+h3 {
+    text-transform: uppercase;
+}
+
+p {
+    margin: 5px 0;
+}
+
+.title {
+    margin-top: 15px;
+}
+
+.form__section {
+    width: 45%;
+    padding: 20px;
+    background-color: rgba(100, 186, 112, 0.6);
+}
+
+.form__title {
+    margin-top: 0;
+}
+
+form {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
