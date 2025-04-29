@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="./styles.css" rel="stylesheet" />
+    </head>
+    <body>
+        <h4>ЗАВДАННЯ 1</h4>
+        <p>Написати програму на JS з такими вимогами:</p>
+        <ul> 
+            <li>На живій сторінці відображається галерея зображень із масиву даних images</li>
+            <li>Галерея зображень стилізована згідно з макетом</li>
+            <li>Дані для галереї створені динамічно в JS</li>
+            <li>Під час прослуховування події натискання на елементи галереї використаний прийом делегування</li>
+            <li>При кліку між елементами галереї нічого не відбувається</li>
+            <li>Підключена бібліотека basicLightbox</li>
+            <li>При кліку по елементу галереї відкривається модальне вікно підключеної
+                бібліотеки, в якому міститься збільшена версія зображення, по якому
+                клікнули</li>
+        </ul>
+        <h4>PROGRAM LINKS</h4>
+        <ul>
+            <li>
+                <a target="_blank" href="https://www.figma.com/design/nfMDvNHMOoMyJmtrmZSJgl/Photos--Community-?node-id=0-1&p=f&t=cD2Lw4lxCytGcoOq-0">Посилання на Figma</a>
+            </li>
+            <li>
+                <a target="_blank" href="https://github.com/a-fedorenko/galery">Посилання на репозиторій Завдання 1</a>
+            </li>
+            <li>
+                <a target="_blank" href="https://a-fedorenko.github.io/galery/">Посилання на живу сторінку Завдання 1</a>
+            </li>
+        </ul>
+        <h4>JS CODE</h4>
+        <pre>
+            const images = [
+                {
+                    id: '01',
+                    preview: './assets/img_sm/01.jpg',
+                    original: './assets/img_lg/01.jpg',
+                    description: 'red fish'
+                },
+                {
+                    id: '02',
+                    preview: './assets/img_sm/02.jpg',
+                    original: './assets/img_lg/02.jpg',
+                    description: 'houses in the mountains'
+                },
+                {
+                    id: '03',
+                    preview: './assets/img_sm/03.jpg',
+                    original: './assets/img_lg/03.jpg',
+                    description: 'flowering bush'
+                },
+                {
+                    id: '04',
+                    preview: './assets/img_sm/04.jpg',
+                    original: './assets/img_lg/04.jpg',
+                    description: 'butterfly on a flower'
+                },
+                {
+                    id: '05',
+                    preview: './assets/img_sm/05.jpg',
+                    original: './assets/img_lg/05.jpg',
+                    description: 'pine branch'
+                },
+                {
+                    id: '06',
+                    preview: './assets/img_sm/06.jpg',
+                    original: './assets/img_lg/06.jpg',
+                    description: 'lanterns on a tree'
+                },
+                {
+                    id: '07',
+                    preview: './assets/img_sm/07.jpg',
+                    original: './assets/img_lg/07.jpg',
+                    description: 'doors in a blue wall'
+                },
+                {
+                    id: '08',
+                    preview: './assets/img_sm/08.jpg',
+                    original: './assets/img_lg/08.jpg',
+                    description: 'flowering branch'
+                },
+                {
+                    id: '09',
+                    preview: './assets/img_sm/09.jpg',
+                    original: './assets/img_lg/09.jpg',
+                    description: 'squirrel'
+                }
+            ];
+
+            const gallery = document.querySelector('.gallery');
+
+            gallery.addEventListener('click', function (e) {
+                e.stopPropagation();
+                openModal(e.target);
+            });
+
+            function setImages() {
+                images.forEach(({ id, preview, description }) => {
+                    const liItem = document.createElement('li');
+                    liItem.innerHTML = `&lt;img class="gallery-img" id="${id}" src="${preview}" alt="${description}">`;
+                    liItem.classList.add('gallery-item');
+                    gallery.appendChild(liItem);
+                });
+            }
+
+            function openModal(target) {
+                if(!target.id) {
+                    return;
+                }
+                const modal = createModalContent(target);
+                basicLightbox.create(modal).show();
+            }
+
+            function createModalContent({ id, alt }) {
+                const content = document.createElement('div');
+                content.innerHTML = `&lt;img width="100%" src="./assets/img_lg/${id}.jpg" alt="${alt}"> &lt;p>${alt}&lt;/>`;
+                return content;
+            }
+
+            setImages();
+        </pre>
+        <h4>HTML</h4>
+        <pre>
+            &lt;!DOCTYPE html>
+            &lt;html lang="en">
+                &lt;head>
+                    &lt;meta charset="UTF-8">
+                    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    &lt;title>Galery</title>
+                    &lt;link href="./css/style.css" rel="stylesheet" />
+                    &lt;link href="https://cdn.jsdelivr.net/npm/basiclightbox@5.0.4/dist/basicLightbox.min.css" rel="stylesheet">
+                &lt;/head>
+                &lt;body>
+                    &lt;div class="gallery-wrapper">
+                        &lt;ul class="gallery">&lt;/ul>
+                    &lt;/div>   
+                &lt;/body>
+                &lt;script src="./js/gallery.js">&lt;/script>
+                &lt;script src="https://cdn.jsdelivr.net/npm/basiclightbox@5.0.4/dist/basicLightbox.min.js">&lt;/script>
+            &lt;/html>
+            &lt;section class="form__section">
+                &lt;h3 class="form__title">ЗАВДАННЯ 2&lt;/h3>
+                &lt;form action="swap" name="swapeAction">
+                    &lt;button onclick="swapeValue()">SWAP ME&lt;/button>
+                    &lt;input id="left" name="left" type="text">
+                    &lt;input id="right" name="right" type="text">
+                &lt;/form>
+            &lt;/section>
+        </pre>
+    </body>
+</html>
