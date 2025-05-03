@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Timer</title>
+        <link href="./css/style.css" rel="stylesheet" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+        <link rel="stylesheet" href="./node_modules/izitoast/dist/css/iziToast.min.css">
+    </head>
+    <body>
+        <h4>ЗАВДАННЯ 1</h4>
+        <p>Таймер зворотного відліку</p>
+        <ul> 
+            <li>Підключені бібліотеки flatpickr та iziToast</li>
+            <li>При першому завантаженні сторінки кнопка Start не активна.</li>
+            <li>При кліку на інпут відкривається календар, де можна вибрати дату.</li>
+            <li>При обранні дати з минулого, кнопка Start стає неактивною і з’являється повідомлення з текстом "Please choose a date in the future".</li>
+            <li>При обранні дати з майбутнього кнопка Start стає активною.</li>
+            <li>При натисканні на кнопку Start вона стає неактивною, на сторінку виводиться час, що лишився до обраної дати у форматі xx:xx:xx:xx, і запускається зворотний відлік часу до обраної дати.</li>
+        </ul>
+        <h4>PROGRAM</h4>
+        <section class="section" aria-autocomplete="off">
+            <div class="form">
+                <div class="form-input">
+                    <input type="text" id="datetime-picker" />
+                    <button type="button" data-start class="disabled">Start</button>
+                </div>
+                
+                <div class="timer">
+                    <div class="field">
+                        <span class="value" data-days>00</span>
+                        <span class="label">Days</span>
+                    </div>
+                    <div class="field">
+                        <span class="value" data-hours>00</span>
+                        <span class="label">Hours</span>
+                    </div>
+                    <div class="field">
+                        <span class="value" data-minutes>00</span>
+                        <span class="label">Minutes</span>
+                    </div>
+                    <div class="field">
+                        <span class="value" data-seconds>00</span>
+                        <span class="label">Seconds</span>
+                    </div> 
+                </div>
+            </div>
+        </section>
+        <h4>JS CODE</h4>
+        <pre>
+            let userSelectedDate;
+            const defaultDate = new Date();
+            const options = {
+                enableTime: true,
+                time_24hr: true,
+                defaultDate,
+                minuteIncrement: 1,
+                onClose: function(selectedDates) {
+                    checkDate(selectedDates);
+                }
+            };
+
+            const selector = document.getElementById('datetime-picker');
+            const button = document.querySelector('[data-start]');
+            const daysEl = document.querySelector('[data-days]');
+            const hoursEl = document.querySelector('[data-hours]');
+            const minutesEl = document.querySelector('[data-minutes]');
+            const secondsEl = document.querySelector('[data-seconds]');
+
+            const fp = flatpickr(selector, options);
+
+            button.addEventListener('click', startTimer);
+
+            function startTimer() {
+                button.classList.add('disabled');
+                changeInputState(true);
+
+                setInterval(() => {
+                    const now = new Date();
+                    const diff = userSelectedDate - now;
+
+                    if (diff <= 0) {
+                        clearInterval(timerId);
+                        updateTime({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+                        changeInputState(false);
+                        return;
+                    }
+
+                    const time = convertMs(diff);
+                    updateTime(time);
+                }, 1000);
+            }
+
+            function updateTime({ days, hours, minutes, seconds }) {
+                daysEl.textContent =  addLeadingZero(days);
+                hoursEl.textContent = addLeadingZero(hours);
+                minutesEl.textContent = addLeadingZero(minutes);
+                secondsEl.textContent = addLeadingZero(seconds);
+            }
+
+            function checkDate(selectedDates) {
+                if(selectedDates[0] < defaultDate) {
+                    button.classList.add('disabled');
+                    setTimeout(() => {
+                    iziToast.error({
+                        title: 'Hello',
+                        message: 'Please choose a date in the future'
+                    });
+                    }, 500);
+                } else {
+                    userSelectedDate = selectedDates[0];
+                    button.classList.remove('disabled');
+                }
+            }
+
+            function addLeadingZero(value) {
+                return String(value).padStart(2, '0');
+            }
+
+            function convertMs(ms) {
+                const second = 1000;
+                const minute = second * 60;
+                const hour = minute * 60;
+                const day = hour * 24;
+
+                const days = Math.floor(ms / day);
+                const hours = Math.floor((ms % day) / hour);
+                const minutes = Math.floor(((ms % day) % hour) / minute);
+                const seconds = Math.floor((((ms % day) % hour) % minute) / second);
+
+                return { days, hours, minutes, seconds };
+            }
+
+            function changeInputState(disable) {
+                if(disable) {
+                    selector.classList.add('disabled');
+                    fp._input.setAttribute('disabled', 'disabled');
+                } else {
+                    selector.classList.remove('disabled');
+                    fp._input.removeAttribute('disabled');
+                }
+            }
+        </pre>
+        <h4>HTML</h4>
+        <pre>
+            &lt;div class="form">
+                &lt;div class="form-input">
+                    &lt;input type="text" id="datetime-picker" />
+                    &lt;button type="button" data-start class="disabled">Start&lt;/button>
+                &lt;/div>
+                
+                &lt;div class="timer">
+                    &lt;div class="field">
+                        &lt;span class="value" data-days>00&lt;/span>
+                        &lt;span class="label">Days&lt;/span>
+                    &lt;/div>
+                    &lt;div class="field">
+                        &lt;span class="value" data-hours>00&lt;/span>
+                        &lt;span class="label">Hours&lt;/span>
+                    &lt;/div>
+                    &lt;div class="field">
+                        &lt;span class="value" data-minutes>00&lt;/span>
+                        &lt;span class="label">Minutes&lt;/span>
+                    &lt;/div>
+                    &lt;div class="field">
+                        &lt;span class="value" data-seconds>00&lt;/span>
+                        &lt;span class="label">Seconds&lt;/span>
+                    &lt;/div> 
+                &lt;/div>
+            &lt;/div>
+        </pre>
+    </body>
+    
+    <script type="module" src="./js/1-timer.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="./node_modules/izitoast/dist/js/iziToast.min.js" type="text/javascript"></script>
+</html>
