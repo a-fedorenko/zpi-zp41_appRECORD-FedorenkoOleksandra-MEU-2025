@@ -6,7 +6,7 @@
         <title>Timer</title>
         <link href="./css/style.css" rel="stylesheet" />
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-        <link rel="stylesheet" href="./node_modules/izitoast/dist/css/iziToast.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/izitoast@1.4.0/dist/css/iziToast.min.css">
     </head>
     <body>
         <h4>ЗАВДАННЯ 1</h4>
@@ -24,7 +24,7 @@
             <div class="form">
                 <div class="form-input">
                     <input type="text" id="datetime-picker" />
-                    <button type="button" data-start class="disabled">Start</button>
+                    <button type="button" data-start disabled>Start</button>
                 </div>
                 
                 <div class="timer">
@@ -73,7 +73,7 @@
             button.addEventListener('click', startTimer);
 
             function startTimer() {
-                button.classList.add('disabled');
+                button.disabled = true;
                 changeInputState(true);
 
                 setInterval(() => {
@@ -101,7 +101,7 @@
 
             function checkDate(selectedDates) {
                 if(selectedDates[0] < defaultDate) {
-                    button.classList.add('disabled');
+                    button.disabled = true;
                     setTimeout(() => {
                     iziToast.error({
                         title: 'Hello',
@@ -110,7 +110,7 @@
                     }, 500);
                 } else {
                     userSelectedDate = selectedDates[0];
-                    button.classList.remove('disabled');
+                    button.disabled = false;
                 }
             }
 
@@ -134,11 +134,9 @@
 
             function changeInputState(disable) {
                 if(disable) {
-                    selector.classList.add('disabled');
-                    fp._input.setAttribute('disabled', 'disabled');
+                  fp._input.setAttribute('disabled', 'disabled');
                 } else {
-                    selector.classList.remove('disabled');
-                    fp._input.removeAttribute('disabled');
+                  fp._input.removeAttribute('disabled');
                 }
             }
         </pre>
@@ -174,5 +172,5 @@
     
     <script type="module" src="./js/1-timer.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-    <script src="./node_modules/izitoast/dist/js/iziToast.min.js" type="text/javascript"></script>
+    <script src="https://cdn.jsdelivr.net/npm/izitoast@1.4.0/dist/js/iziToast.min.js" type="text/javascript"></script>
 </html>

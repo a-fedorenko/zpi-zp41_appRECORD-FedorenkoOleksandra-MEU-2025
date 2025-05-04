@@ -111,8 +111,13 @@ button:not('disabled'):hover {
     background-color: #6C8CFF;
 }
 
-.disabled {
+button:disabled {
+    background-color: var(--dark-color);
     cursor: not-allowed;
-    color: var(--dark-color);
+}
+
+.flatpickr-input[readonly][disabled] {
     background-color: var(--light-color);
+    color: var(--dark-color);
+    cursor: not-allowed;
 }

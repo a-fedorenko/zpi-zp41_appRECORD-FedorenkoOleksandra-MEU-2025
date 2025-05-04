@@ -22,7 +22,7 @@ const fp = flatpickr(selector, options);
 button.addEventListener('click', startTimer);
 
 function startTimer() {
-  button.classList.add('disabled');
+  button.disabled = true;
   changeInputState(true);
 
   setInterval(() => {
@@ -37,7 +37,9 @@ function startTimer() {
     }
 
     const time = convertMs(diff);
-    updateTime(time);
+    if(time) {
+      updateTime(time);
+    }
   }, 1000);
 }
 
@@ -50,7 +52,7 @@ function updateTime({ days, hours, minutes, seconds }) {
 
 function checkDate(selectedDates) {
   if(selectedDates[0] < defaultDate) {
-    button.classList.add('disabled');
+    button.disabled = true;
     setTimeout(() => {
       iziToast.error({
         title: 'Hello',
@@ -59,7 +61,7 @@ function checkDate(selectedDates) {
     }, 500);
   } else {
     userSelectedDate = selectedDates[0];
-    button.classList.remove('disabled');
+    button.disabled = false;
   }
 }
 
@@ -83,10 +85,8 @@ function convertMs(ms) {
 
 function changeInputState(disable) {
   if(disable) {
-    selector.classList.add('disabled');
     fp._input.setAttribute('disabled', 'disabled');
   } else {
-    selector.classList.remove('disabled');
     fp._input.removeAttribute('disabled');
   }
 }
